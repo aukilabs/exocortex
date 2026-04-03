@@ -1,6 +1,6 @@
 # Exocortex
 
-A personal exocortex — an external memory and focus system for knowledge workers, designed to be read and written by both humans and AI agents.
+A personal exocortex — an external memory and focus system for intercognitive human-AI pairs, designed to be read and written by both humans and their AI agent collaborators.
 
 ## What is an exocortex?
 
