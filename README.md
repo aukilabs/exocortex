@@ -1,15 +1,33 @@
+**This is a repo for setting up your own exocortex: a mission-driven AI copilot that prompts you back.**
+
 # Exocortex
 
-A personal exocortex — an external memory and focus system for intercognitive human-AI pairs, designed to be read and written by both humans and their AI agent collaborators.
+Every time you start a conversation with an AI agent, it knows nothing about you. Not your name, not your role, not what you're working on, not what you care about. You start from zero, every single time.
 
-## What is an exocortex?
+That means every conversation is generic. The agent can't challenge your assumptions because it doesn't know what you assume. It can't keep you focused because it doesn't know what you're focused on. It can't align its work with your values because it doesn't know what you value. You are strangers, every time.
 
-An exocortex is a structured external memory that helps you:
+Now imagine the opposite. Your AI agent starts every session by reading your identity, your values, your role, your current goals, and your stated focus for this session. It knows your mental models, your organization's mission, and the specific terms your team uses. It doesn't just answer your questions — it pushes back when your work drifts from your goals. It knows how to talk to you.
 
-- **Stay focused** — your `attention.md` declares what you're working on right now
-- **Track progress** — your `goals.md` tracks your current projects
-- **Stay aligned** — your `values.md` keeps your work connected to what matters
-- **Collaborate with AI** — your `claude.md` teaches AI agents how to work with you
+That's an exocortex: a structured external memory that turns a generic AI assistant into an intercognitive collaborator.
+
+## How it works
+
+An exocortex is a set of markdown files in a git repo. Each file gives your AI agent a different layer of context:
+
+| File | What it tells your agent |
+|------|--------------------------|
+| `attention.md` | What you're working on *right now* — one thing, updated by you at the start of each session |
+| `identity.md` | Who you are, how you see the world |
+| `values.md` | What you care about and why — not slogans, but principles you actually use to make decisions |
+| `organization.md` | Your org's mission, what it builds, and why it matters |
+| `role.md` | Your responsibilities and routines — what you're accountable for |
+| `goals.md` | Your current projects and their status |
+| `methods.md` | Mental models and frameworks you rely on, so your agent can apply them too |
+| `glossary.md` | Domain-specific language, so your agent speaks the way your team speaks |
+
+Your agent reads these files at the start of every session through `claude.md` — a file that tells the agent how to use the exocortex: what to read, in what order, and what alignment checks to run before responding.
+
+The richer your exocortex, the better your agent collaborates with you. But even a sparse one — just a name, a role, and a current focus — is a dramatic improvement over starting from nothing.
 
 ## Getting started
 
@@ -19,37 +37,31 @@ cd my-exocortex
 bash setup.sh
 ```
 
-The setup script walks you through the basics — your name, role, values, and current focus. After that, open each file and expand on the guiding prompts inside. Check out `examplenils/` for a filled-in example to see what a complete exocortex looks like.
+The setup script asks you a few questions — your name, role, values, organization, and current focus — and populates the template files with your answers. After that, open each file and expand on it. The guiding prompts inside each file will help. Check out `examplenils/` for a filled-in example.
 
-## Structure
+Then open the repo in your AI coding tool (Claude Code, Cursor, etc.) and start working. Your agent will read `claude.md` and orient itself automatically.
 
-```
-exocortex/
-├── README.md              ← You are here
-├── claude.md              ← Instructions for AI agents (reading order, alignment checks)
-├── attention.md           ← Current focus (one thing, right now)
-├── identity.md            ← Who you are, how you see the world
-├── values.md              ← Guiding principles
-├── organization.md        ← Your org's mission and values
-├── role.md                ← Your responsibilities and routines
-├── goals.md               ← Current projects and objectives
-├── methods.md             ← Mental models and frameworks you use
-├── glossary.md            ← Domain-specific terms
-└── examplenils/           ← Filled-in example (Nils Pihl, CEO of Auki Labs)
-```
+## What changes
 
-## Philosophy
+Once your agent has context, the collaboration shifts:
 
-The exocortex is built on a few principles:
-
-**Singular attention.** You can only focus on one thing at a time. `attention.md` forces that choice and helps both you and your AI agent resist drift.
-
-**Values-aligned work.** Every goal should connect to a value. If it doesn't, question why you're doing it.
-
-**AI as collaborator.** Your AI agent reads your exocortex at the start of every session. It knows your focus, your goals, and your values. It will nudge you back on track when you drift and challenge your assumptions when you need it.
-
-**Your content, your structure.** The template provides guiding prompts, but the content must be yours. An exocortex only works if it reflects how you actually think, what you actually do, and what you actually care about.
+- **It holds you accountable.** If your attention says "ship the onboarding flow" and you start bikeshedding color schemes, it will call that out.
+- **It challenges you.** It knows your values and goals well enough to ask whether what you're doing actually serves them.
+- **It gets better over time.** As you add to your methods, refine your goals, and update your role, the agent's judgment improves because its context improves.
+- **It remembers across sessions.** Your goals, your changelog, your diary — they persist in the repo. Every new session picks up where the last one left off.
 
 ## For teams
 
-When everyone on a team maintains their own exocortex, collaboration becomes legible without meetings or status updates. You can see what someone is focused on by reading their `attention.md`. Project repos can have their own exocortex-like structure that individual exocortices point into.
+When everyone on a team maintains their own exocortex, collaboration becomes legible without status meetings. You can read someone's `attention.md` to see what they're focused on. You can read their `goals.md` to see what they're working toward. Their agent knows who they are and what they're doing — and so can yours.
+
+Project repos can have their own exocortex-like structure (mission, goals, contributing rules) that individual exocortices reference. Alignment scales from one person to an entire organization.
+
+## Philosophy
+
+**Singular attention.** You can only focus on one thing at a time. `attention.md` forces that choice.
+
+**Values-driven work.** Every goal should trace back to a value. If it doesn't, question why you're doing it.
+
+**Your content, your structure.** The template provides scaffolding, but the content must be yours. An exocortex only works if it reflects how you actually think and what you actually care about.
+
+**Intercognitive collaboration.** The most human thing is shared intersubjective experience — perceiving the world together through shared language and context. An exocortex extends that to human-AI pairs.
