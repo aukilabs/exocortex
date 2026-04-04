@@ -1,6 +1,7 @@
 # Contributing
 
 Every change to any document in this repo should be logged in changelog.md and promptlog.md.
+If we are editing a file in a loaded repo, make sure to respect the changelog conventions of that repo.
 
 **Always update promptlog.md before changelog.md.** The changelog references PromptIDs, so the promptlog entry must exist first to avoid dangling references.
 

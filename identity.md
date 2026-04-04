@@ -4,6 +4,14 @@ What lens or discipline shapes your thinking? (e.g. engineering, design, biology
 
 If you have a public bio, paste it here.
 
-##Identity
+What are your skills and capabilities? Identity is what you bring — your expertise, tools you're proficient with, languages you speak, domains you've worked in. Your role.md describes what the job demands; your identity.md describes what you supply. The gap between the two is where growth happens.
+
+## Identity
 
 I am John Doe, an engineer at Acme Corp. We make widgets and doodads, and I make them work well.
+
+## Skills
+
+- Proficient in Python, TypeScript, and Go
+- Experienced with distributed systems and API design
+- Strong technical writer

@@ -73,7 +73,12 @@ We understand that the more righteous and appealing our mission is, the easier i
 
 Sync with every project leader regularly. Align their intent to keep them mission focused. Motivate them to keep them productive. Help them build and maintain their exocortex. Get our exocortices aligned on a weekly basis.
 
-Question: who are my project leaders, and how will the exocortex keep track? How often do I do this, and how?
+Current leaders:
+- **BD** (Johannes) — pipeline, revenue, market intelligence. Feeds signal from prospects and competitors to the CEO. See johannes.md.
+- **Marketing** (Jay) — memetic propagation, narrative architecture, content. The CEO's lieutenant on all external and internal narrative. See jay.md.
+- **DevRel** (Arshak) — developer onboarding, SDK/DX, developer feedback loop. Makes builders successful on the real world web. See arshak.md.
+
+These three form the go-to-market triad: BD opens doors, Marketing crafts narratives, DevRel makes builders successful. They cross-reference each other by function in their role files.
 
 **Exocortex engineering**
 
@@ -120,4 +125,3 @@ We maintain a repository of interesting papers. Whenever we come across interest
 - Keep a regular cadence of check-ins that covers every active project. No project should go more than a week without the CEO having visibility into its state.
 - Review my own exocortex daily. Update attention, mark accountability, track goals. If the system works for me, I can credibly ask others to use it.
 - Protect deep work time. The CEO role pulls toward meetings and reactive communication. Narrative work, strategic thinking, and memetic engineering require uninterrupted blocks.
-
