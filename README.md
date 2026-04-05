@@ -16,9 +16,9 @@ You are not the author of your own thoughts. But you can write the prompt that p
 
 Every employee at Auki has an exocortex. Every function has an exocortex. Every project has an exocortex.
 
-Individual exocortices carry identity, values, role, goals, and attention. They make each person more productive and more aligned with the mission.
+Individual exocortices carry identity (including values), role, goals, and attention. They make each person more productive and more aligned with the mission.
 
-The organization's exocortex — shared files like `organization.md` and `values.md` — gives every agent on the team the same foundational context. Alignment isn't a quarterly exercise. It's continuous, maintained by the system itself.
+The organization's exocortex — shared files like `organization.md`, `methods.md`, and team role files — gives every agent on the team the same foundational context through a symlinked org repo. Alignment isn't a quarterly exercise. It's continuous, maintained by the system itself.
 
 When we get this right, our intercognitive bandwidth increases: our ability to think, experience, and solve problems together with each other and AI.
 

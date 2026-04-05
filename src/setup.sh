@@ -14,12 +14,36 @@ echo "get started by filling in the basics. You can always edit the"
 echo "files directly afterward."
 echo ""
 
+# --- Org repo symlink ---
+echo "--- Organization ---"
+echo ""
+echo "Your exocortex reads shared org context (mission, values, team)"
+echo "through a symlink to the org repo. You need a local clone of the"
+echo "org repo to continue."
+echo ""
+read -r -p "Path to your local org repo clone (e.g. ~/aukilabs-org): " org_path
+
+# Expand ~ if present
+org_path="${org_path/#\~/$HOME}"
+
+if [ ! -d "$org_path/src" ]; then
+  echo "  ✗ Could not find src/ in $org_path. Make sure the org repo is cloned there."
+  exit 1
+fi
+
+ln -sf "$org_path" org
+echo "  ✓ org/ symlinked to $org_path"
+echo ""
+
 # --- identity.md ---
 echo "--- Identity ---"
 echo ""
 read -r -p "What is your name? " name
 read -r -p "What do you do? (e.g. 'engineer at Acme Corp') " role_desc
 read -r -p "What lens or discipline shapes your thinking? (e.g. engineering, design, biology) " lens
+echo ""
+read -r -p "What is your most important guiding value? " value1
+read -r -p "Why does it matter to you? " value1_why
 
 cat > identity.md << EOF
 Who are you? Write a short description of yourself — your name, what you do, and how you see the world.
@@ -28,68 +52,30 @@ What lens or discipline shapes your thinking? (e.g. engineering, design, biology
 
 If you have a public bio, paste it here.
 
-##Identity
+## Identity
 
 I am ${name}, ${role_desc}. I see the world through the lens of ${lens}.
-EOF
 
-echo "  ✓ identity.md updated"
-echo ""
+## Skills
 
-# --- values.md ---
-echo "--- Values ---"
-echo ""
-read -r -p "What is your most important guiding value? " value1
-read -r -p "Why does it matter to you? " value1_why
+(List your skills and capabilities here.)
 
-cat > values.md << EOF
-What are your guiding values? List each one and explain what it means to you personally — not the dictionary definition, but why it matters and how it shows up in your decisions.
+## Values
 
 ### ${value1}
 
 ${value1_why}
 EOF
 
-echo "  ✓ values.md updated"
-echo ""
-
-# --- organization.md ---
-echo "--- Organization ---"
-echo ""
-read -r -p "What is your organization's name? " org_name
-read -r -p "What is your organization's mission? " org_mission
-
-cat > organization.md << EOF
-# Welcome to ${org_name}
-
-What is the mission of your organization? What are you collectively trying to accomplish?
-
-${org_mission}
-
-What are you building, and why does it matter?
-
-What context about the world or your industry is important for understanding why this work is valuable?
-
-
-# Our Values
-
-What values guide how your organization operates? List them and explain what each one means in practice — not just as slogans, but as behaviors you expect to see.
-
-## Value 1
-
-What does this look like in practice? What behaviors does it encourage or discourage?
-
-## Value 2
-
-What does this look like in practice? What behaviors does it encourage or discourage?
-EOF
-
-echo "  ✓ organization.md updated"
+echo "  ✓ identity.md updated"
 echo ""
 
 # --- role.md ---
 echo "--- Role ---"
 echo ""
+# Read org name from the org repo
+org_name=$(head -1 "$org_path/src/organization.md" | sed 's/^# Welcome to //' | sed 's/!$//')
+echo "  Organization: $org_name"
 read -r -p "What is your role/title? " role_title
 
 cat > role.md << EOF
@@ -147,10 +133,14 @@ echo "  2. Check out examplenils/ for a filled-in example"
 echo "  3. Push to your own repo and start working with your AI agent"
 echo ""
 echo "Files you should flesh out:"
-echo "  - identity.md    Add your bio and worldview"
-echo "  - values.md      Add more values"
-echo "  - organization.md Fill in your org's values"
+echo "  - identity.md    Add your bio, worldview, and more values"
 echo "  - role.md        Add responsibilities and routines"
 echo "  - methods.md     Add your mental models and frameworks"
 echo "  - glossary.md    Add domain-specific terms"
+echo ""
+echo "Shared context (read-only, from org repo):"
+echo "  - org/src/organization.md   Mission, strategy, values"
+echo "  - org/src/team/             Your colleagues' role files"
+echo "  - org/src/methods.md        Shared heuristics"
+echo "  - org/src/contributing.md   Shared logging conventions"
 echo ""
