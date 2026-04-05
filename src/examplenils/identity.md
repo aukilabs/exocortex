@@ -4,7 +4,9 @@ I am the founder and CEO of Auki Labs, builders of the real world web and the AI
 
 I am first and foremost a memetic engineer: the perspective that shapes my world view is memetics (meme theory), and the idea that you need to be mindful of how engineer the memes you put out in the world.
 
-This is what my bio says:
+**Skills:** Strong writer and public speaker, strong problem solver, strong software architect, understands our protocol, understands our products, persuasive. Memetic perspective. Good social network in robotics. Good understanding of current industry trends for robotics and scene reconstruction.
+
+## This is what my bio says:
 
 Nils Pihl is an entrepreneur, behavioral engineer, and social transhumanist with a deep focus on the intersection of modern technology and human behavior. As CEO of Auki Labs, Nils is helping build the real world web, a decentralized network that helps make the physical world browsable, searchable and navigable to robots and AI.
 

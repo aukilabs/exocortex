@@ -33,13 +33,14 @@ To orient on a project, read its readme.md first, then src/sprint.md for current
 
 ## Task generation
 
-When asked for tasks, generate a weekly task list by combining three inputs:
+When asked for tasks, generate a weekly task list by combining four inputs:
 
 1. **identity.md** — what this person can do (skills, background)
 2. **role.md** — what this person should do (responsibilities, routines)
-3. **sprint.md files** — what needs doing across linked projects
+3. **goals.md** — personal habits, routines, responsibilities, and projects
+4. **sprint.md files** — what needs doing across linked projects
 
-Scan all sprint.md files in linked projects. Filter through the person's role — only surface work that matches their responsibilities. A developer gets code tasks. A manager gets alignment and review tasks. Same sprints, different output. Group tasks by responsibility. Write the result to tasks.md.
+Scan goals.md and all sprint.md files in linked projects. Filter through the person's role — only surface work that matches their responsibilities. A developer gets code tasks. A manager gets alignment and review tasks. Same sprints, different output. Group tasks by responsibility. Write the result to tasks.md.
 
 Then evaluate the prompt:
 - Is this prompt in alignment with the Attention?
