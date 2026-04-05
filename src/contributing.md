@@ -1,7 +1,7 @@
 # Contributing
 
 Every change to any document in this repo should be logged in changelog.md and promptlog.md.
-If we are editing a file in a loaded repo, make sure to respect the changelog conventions of that repo. Project-level repos (like auki-sdk or exocortex) use an **Author** field instead of PromptID in their changelogs, since they have multiple contributors and no single promptlog. Project-level changelogs use an **Author** field instead of PromptID, since projects have multiple contributors and no single promptlog.
+If we are editing a file in a loaded repo, make sure to respect the changelog conventions of that repo. Project-level repos use an **Author** field instead of PromptID in their changelogs, since they have multiple contributors and no single promptlog.
 
 **Always update promptlog.md before changelog.md.** The changelog references PromptIDs, so the promptlog entry must exist first to avoid dangling references.
 
@@ -32,27 +32,6 @@ Append-only, prepend latest entry on top.
 | **PromptID** | Sequential ID matching the promptlog, or a name for human entries |
 
 Humans may manually add to the changelog using their name as the PromptID. Human entries do not count towards the PromptID sequence counter.
-
-## Red/Green Calendar
-
-Append-only, latest entry on top, in a markdown table.
-
-| Status | Criteria |
-|--------|----------|
-| 🟩 **Green day** | Ate at a caloric deficit (will not gain weight) AND exercised enough to maintain or build strength |
-| 🟥 **Red day** | Did not meet both criteria |
-
-The file also contains:
-- **Streak counters** at the top (current streak and longest green streak) — update when a new day is logged.
-- **30-day visualization** — a row of 30 emoji boxes (⬛🟥🟩), newest on the right. Regenerate when a new day is logged.
-
-If Claude notices a day has been skipped, call it out.
-
-## Diary
-
-Append-only, latest entry on top. Written in plural first person ("we").
-
-The diary is **not automated**. It is only written when Nils asks for it. When prompted, write a prose summary of what we accomplished that day and prepend it to diary.md under the `# Diary` heading.
 
 ## Claude.md
 
