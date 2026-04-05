@@ -22,13 +22,13 @@ Project repos are symlinked into the exocortex root. Each project follows a stan
 |------|---------|
 | readme.md | What the project is and why it exists (aspirational) |
 | roadmap.md | Where it's headed — milestones, dependencies, timeline |
-| sprint.md | Current week's work and blockers |
 | glossary.md | Project-specific vocabulary |
 | changelog.md | What changed and why (Author field, not PromptID) |
 | src/ | The actual code |
 | src/readme.md | AI-generated description of what the code does today (no fluff) |
+| src/sprint.md | Current work and next steps |
 
-To orient on a project, read its readme.md first, then sprint.md for current state. To create a new project, follow the scaffolding instructions in @org/src/contributing.md.
+To orient on a project, read its readme.md first, then src/sprint.md for current work. To create a new project, follow the scaffolding instructions in @org/src/contributing.md.
 
 Then evaluate the prompt:
 - Is this prompt in alignment with the Attention?
