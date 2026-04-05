@@ -1,5 +1,6 @@
 | Timestamp | Change | Justification | Author |
 |-----------|--------|---------------|--------|
+| Apr 5 HKT, 2026 | Reset src/changelog.md and src/promptlog.md to clean single-entry templates. Every new fork starts fresh. | The template was carrying the CEO cortex's history. New colleagues should start with a blank slate, not inherited entries. | Nils |
 | Apr 5 HKT, 2026 | Restructured repo — top-level readme describes the aspirational state of the exocortex project, src/ contains the actual template files that colleagues clone. Added project-level changelog (this file) with Author field instead of PromptID. | Separating aspiration from implementation. Project-level changelogs track who changed what, not which prompt caused it. | Nils |
 | Apr 5 HKT, 2026 | Rewrote src/README.md for Auki colleagues. Clone URL points to aukilabs/exocortex. Notes that organization.md is pre-populated with Auki context. Added "your first task" section (write your role.md). | This repo is the official Auki onboarding tool. README should speak to colleagues. | Nils |
 | Apr 5 HKT, 2026 | Populated src/organization.md with full Auki context — mission, protocol, economy, products, strategy, values. Repo moved from Broodsugar/exocortex to aukilabs/exocortex. | Any Auki employee cloning the exocortex now gets pre-loaded organizational context. | Nils |
