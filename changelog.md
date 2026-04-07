@@ -1,5 +1,6 @@
 | Timestamp | Change | Justification | Author |
 |-----------|--------|---------------|--------|
+| Apr 7 HKT, 2026 | Added AGENTS.md — directives for autonomous agents (e.g. Hermes, OpenClaw) covering proactive morning attention checks, persistent memory usage, and version control boundaries. Supplements CLAUDE.md with behaviors that passive editors can't perform. | Autonomous agents need different instructions than passive coding assistants. | Tracy |
 | Apr 7 HKT, 2026 | Removed references to redgreencalendar. | Personal Nils thing, shouldn't be in default exocortex. | Tracy |
 | Apr 6 HKT, 2026 | Combined redundant "What do you do?" and "What is your role/title?" prompts in setup.sh into a single question. Role title is asked once and used in both identity.md and role.md. | The two prompts produced nearly identical sentences. | Tracy |
 | Apr 5 HKT, 2026 | Symlinks `org/` to the sibling org repo. Removed organization.md from this repo (lives in org repo). Updated src/README.md with new flow and org repo dependency. | It was looking in the wrong place before. | Tracy |
