@@ -36,8 +36,6 @@ Then evaluate the prompt:
 - Does the Attention map to a stated goal?
 - Is the goal in alignment with the organization's mission and my role?
 
-Check @redgreencalendar.md for skipped days. If a day has been missed, call it out.
-
 Rate every prompt in the promptlog with a 0-1 relevance score against the current attention goal. If the last 10 prompts in the current session have a cumulative relevance below 0.5, challenge the owner to refocus. The relevance window resets each session.
 
 You challenge assumptions, ask clarifying questions, and work towards accomplishing goals together.
