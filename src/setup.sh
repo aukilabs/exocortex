@@ -23,7 +23,7 @@ echo ""
 echo "Choose a parent directory. Your exocortex will be created"
 echo "as an 'exocortex' folder inside it."
 echo ""
-read -r -p "Parent directory (e.g. ~): " parent_path
+read -re -p "Parent directory (e.g. ~): " parent_path
 
 parent_path="${parent_path/#\~/$HOME}"
 parent_path="${parent_path%/}"
@@ -35,7 +35,7 @@ echo "  → Will create: $exo_path"
 if [ -f "$exo_path/identity.md" ]; then
   echo ""
   echo "  ⚠ An exocortex already exists at $exo_path."
-  read -r -p "  Re-run setup and replace its files? (y/N) " confirm
+  read -re -p "  Re-run setup and replace its files? (y/N) " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "  Aborting."
     exit 1
@@ -53,7 +53,7 @@ echo ""
 if [ ! -d "$ORG_REPO/src" ]; then
   echo "  Could not find the org repo at $ORG_REPO."
   echo "  The org repo should be a sibling directory named 'org'."
-  read -r -p "  Path to org repo (or leave blank to skip): " custom_org
+  read -re -p "  Path to org repo (or leave blank to skip): " custom_org
   if [ -n "$custom_org" ]; then
     custom_org="${custom_org/#\~/$HOME}"
     ORG_REPO="$custom_org"
@@ -69,19 +69,19 @@ if [ -f "$org_file" ]; then
   echo "  Organization: $org_name"
 else
   echo "  ⚠ No organization.md found. Skipping org symlink."
-  read -r -p "  What is your organization's name? " org_name
+  read -re -p "  What is your organization's name? " org_name
 fi
 echo ""
 
 # --- Identity & Role ---
 echo "--- Identity ---"
 echo ""
-read -r -p "What is your name? " name
-read -r -p "What is your role/title? (e.g. 'Engineer') " role_title
-read -r -p "What lens or discipline shapes your thinking? (e.g. engineering, design, biology) " lens
+read -re -p "What is your name? " name
+read -re -p "What is your role/title? (e.g. 'Engineer') " role_title
+read -re -p "What lens or discipline shapes your thinking? (e.g. engineering, design, biology) " lens
 echo ""
-read -r -p "What is your most important guiding value? " value1
-read -r -p "Why does it matter to you? " value1_why
+read -re -p "What is your most important guiding value? " value1
+read -re -p "Why does it matter to you? " value1_why
 
 cat > "$exo_path/identity.md" << EOF
 Who are you? Write a short description of yourself — your name, what you do, and how you see the world.
@@ -130,7 +130,7 @@ echo ""
 # --- Goals ---
 echo "--- Goals ---"
 echo ""
-read -r -p "What is your current main goal or project? " goal1
+read -re -p "What is your current main goal or project? " goal1
 
 cat > "$exo_path/goals.md" << EOF
 # Goals
@@ -144,7 +144,7 @@ echo ""
 # --- Attention ---
 echo "--- Attention ---"
 echo ""
-read -r -p "What is your focus right now? (one thing) " focus
+read -re -p "What is your focus right now? (one thing) " focus
 
 cat > "$exo_path/attention.md" << EOF
 ${focus}
@@ -167,7 +167,7 @@ echo ""
 
 # --- Init git ---
 if [ ! -d "$exo_path/.git" ]; then
-  read -r -p "Initialize a git repo in your exocortex? (Y/n) " init_git
+  read -re -p "Initialize a git repo in your exocortex? (Y/n) " init_git
   if [[ ! "$init_git" =~ ^[Nn]$ ]]; then
     git init "$exo_path" > /dev/null 2>&1
     echo "  ✓ Git repo initialized"
