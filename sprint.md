@@ -4,15 +4,17 @@ Week of Apr 6, 2026.
 
 ## Goal
 
-Onboard Freddie (COO), resync Jay (Marketing), potentially onboard Cherlin (Head of Finance). Write the project roadmap.
+Ship the runtime-agnostic template refactor, then use it for the next onboarding wave.
 
 ## Tasks
 
-- [ ] Onboard Freddie — clone template, populate identity/role, symlink org
-- [ ] Resync Jay — pull latest template changes into his exocortex
+- [x] Replace the legacy prompt-pack template with the lean canonical file set
+- [x] Rewrite `setup.sh` to scaffold the new structure directly
+- [ ] Onboard Freddie — clone template, populate `USER.md` and `ROLE.md`, symlink org
+- [ ] Resync Jay — pull the new template shape into his exocortex
 - [ ] Onboard Cherlin (stretch) — same as Freddie
-- [x] Write project roadmap
-- [ ] Create role files for Freddie and Cherlin in org/src/team/
+- [ ] Create `org/src/team/index.md` so agents stop loading the full team directory
+- [ ] Create role files for Freddie and Cherlin in `org/src/team/`
 
 ## Blockers
 

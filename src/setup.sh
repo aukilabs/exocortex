@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# Exocortex Setup
-# Waslks you t hrough creating a personal exocortex from the org template.
-
-set -e
+set -euo pipefail
 
 TEMPLATE_REPO="$(cd "$(dirname "$0")/.." && pwd)"
 TEMPLATE_DIR="$TEMPLATE_REPO/src"
@@ -12,30 +9,25 @@ ORG_REPO="$TEMPLATE_REPO/../org"
 echo ""
 echo "=== Exocortex Setup ==="
 echo ""
-echo "This will create your personal exocortex — a new directory"
-echo "with your identity, role, goals, and focus. It symlinks back"
-echo "to this org repo for shared context."
+echo "This creates a personal exocortex with a small canonical context pack:"
+echo "AGENTS, SOUL, TOOLS, USER, STATE, MEMORY, plus on-demand reference files."
 echo ""
 
-# --- Where to create the personal exocortex ---
 echo "--- Location ---"
 echo ""
-echo "Choose a parent directory. Your exocortex will be created"
-echo "as an 'exocortex' folder inside it."
-echo ""
-read -re -p "Parent directory (e.g. ~): " parent_path
+read -re -p "Parent directory for the new exocortex (e.g. ~): " parent_path
 
 parent_path="${parent_path/#\~/$HOME}"
 parent_path="${parent_path%/}"
 exo_path="$parent_path/exocortex"
 
 echo ""
-echo "  → Will create: $exo_path"
+echo "  -> Will create: $exo_path"
 
-if [ -f "$exo_path/identity.md" ]; then
+if [ -f "$exo_path/AGENTS.md" ] || [ -f "$exo_path/USER.md" ]; then
   echo ""
-  echo "  ⚠ An exocortex already exists at $exo_path."
-  read -re -p "  Re-run setup and replace its files? (y/N) " confirm
+  echo "  An exocortex already exists at $exo_path."
+  read -re -p "  Replace its template-managed files? (y/N) " confirm
   if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
     echo "  Aborting."
     exit 1
@@ -43,17 +35,17 @@ if [ -f "$exo_path/identity.md" ]; then
 fi
 
 mkdir -p "$exo_path"
-echo "  ✓ Directory ready at $exo_path"
+mkdir -p "$exo_path/skills"
+echo "  Directory ready at $exo_path"
 echo ""
 
-# --- Find the org repo ---
 echo "--- Organization ---"
 echo ""
 
 if [ ! -d "$ORG_REPO/src" ]; then
   echo "  Could not find the org repo at $ORG_REPO."
-  echo "  The org repo should be a sibling directory named 'org'."
-  read -re -p "  Path to org repo (or leave blank to skip): " custom_org
+  echo "  The default is a sibling directory named 'org'."
+  read -re -p "  Path to org repo (leave blank to skip): " custom_org
   if [ -n "$custom_org" ]; then
     custom_org="${custom_org/#\~/$HOME}"
     ORG_REPO="$custom_org"
@@ -63,143 +55,206 @@ fi
 org_file="$ORG_REPO/src/organization.md"
 if [ -f "$org_file" ]; then
   ORG_REPO="$(cd "$ORG_REPO" && pwd)"
-  org_name=$(head -1 "$org_file" | sed 's/^# Welcome to //' | sed 's/!$//')
-  ln -sf "$ORG_REPO" "$exo_path/org"
-  echo "  ✓ org/ symlinked to $ORG_REPO"
+  org_name=$(head -1 "$org_file" | sed 's/^# *//')
+  ln -sfn "$ORG_REPO" "$exo_path/org"
+  echo "  org/ symlinked to $ORG_REPO"
   echo "  Organization: $org_name"
 else
-  echo "  ⚠ No organization.md found. Skipping org symlink."
-  read -re -p "  What is your organization's name? " org_name
+  echo "  No org repo found. Continuing without org/."
+  read -re -p "  Organization name: " org_name
 fi
 echo ""
 
-# --- Identity & Role ---
-echo "--- Identity ---"
+echo "--- Personal Context ---"
 echo ""
-read -re -p "What is your name? " name
-read -re -p "What is your role/title? (e.g. 'Engineer') " role_title
-read -re -p "What lens or discipline shapes your thinking? (e.g. engineering, design, biology) " lens
+read -re -p "Name: " name
+read -re -p "Role/title: " role_title
+read -re -p "Thinking lens or discipline: " lens
+default_tz="$(date +%Z 2>/dev/null || printf 'UTC')"
+read -re -p "Timezone [$default_tz]: " timezone
+timezone="${timezone:-$default_tz}"
+read -re -p "Primary working style (e.g. concise, exploratory, visual): " working_style
+read -re -p "Most important guiding value: " guiding_value
+read -re -p "Current main goal or bet: " main_goal
+read -re -p "Current focus right now: " current_focus
 echo ""
-read -re -p "What is your most important guiding value? " value1
-read -re -p "Why does it matter to you? " value1_why
 
-cat > "$exo_path/identity.md" << EOF
-Who are you? Write a short description of yourself — your name, what you do, and how you see the world.
+for file in AGENTS.md SOUL.md TOOLS.md MEMORY.md HEARTBEAT.md SKILLS.md STYLE.md METHODS.md context.manifest.yaml; do
+  cp "$TEMPLATE_DIR/$file" "$exo_path/$file"
+  echo "  copied $file"
+done
 
-What lens or discipline shapes your thinking? (e.g. engineering, design, biology, economics, memetics)
+cat > "$exo_path/README.md" << EOF
+# Exocortex
 
-If you have a public bio, paste it here.
+This is the personal exocortex for ${name}.
 
-## Identity
+## Canonical Pack
 
-I am ${name}, ${role_title} at ${org_name}. I see the world through the lens of ${lens}.
+- \`AGENTS.md\`
+- \`SOUL.md\`
+- \`TOOLS.md\`
+- \`USER.md\`
+- \`STATE.md\`
+- \`MEMORY.md\`
 
-## Skills
+## On-Demand Files
 
-(List your skills and capabilities here.)
+- \`SKILLS.md\`
+- \`STYLE.md\`
+- \`ROLE.md\`
+- \`GOALS.md\`
+- \`METHODS.md\`
+- \`HEARTBEAT.md\`
 
-## Values
+## Notes
 
-### ${value1}
-
-${value1_why}
+- Keep \`STATE.md\` short and current.
+- Keep \`MEMORY.md\` curated and durable.
+- Load org and project docs only when the task needs them.
 EOF
+echo "  wrote README.md"
 
-echo "  ✓ identity.md created"
-echo ""
+cat > "$exo_path/USER.md" << EOF
+# USER
 
-cat > "$exo_path/role.md" << EOF
-What is your role? State your title and what your organization does, so your role has context.
+## Summary
 
-I am ${role_title} at ${org_name}.
+- Name: ${name}
+- Role: ${role_title}
+- Timezone: ${timezone}
+- Primary working style: ${working_style}
+- Known preferences: keep adding stable preferences here
 
-As ${role_title}, you have responsibilities and routines. Responsibilities are overarching, while routines are methods you use to execute your responsibilities.
+## Stable Facts
+
+| Field | Value |
+|-------|-------|
+| Name | ${name} |
+| Role | ${role_title} |
+| Organization | ${org_name} |
+| Timezone | ${timezone} |
+| Lens | ${lens} |
+
+## Working Preferences
+
+- Preferred level of detail:
+- Preferred challenge level:
+- Preferred meeting style:
+- Preferred update cadence:
+
+## Constraints
+
+- Recurring constraints, obligations, or non-negotiables:
+- Areas where the agent should be especially careful:
+
+## Collaboration Notes
+
+- Guiding value: ${guiding_value}
+- Add durable preferences and quirks here over time.
+EOF
+echo "  wrote USER.md"
+
+cat > "$exo_path/STATE.md" << EOF
+# STATE
+
+## Summary
+
+- Current focus: ${current_focus}
+- Active task: ${main_goal}
+- Next milestone:
+- Last updated:
+
+## Current Focus
+
+${current_focus}
+
+## Active Work
+
+- In progress: ${main_goal}
+- Next step:
+
+## Waiting On
+
+- Person:
+- Decision:
+- Date:
+
+## Immediate Risks
+
+- What could derail current progress?
+EOF
+echo "  wrote STATE.md"
+
+cat > "$exo_path/ROLE.md" << EOF
+# ROLE
+
+## Summary
+
+- Title: ${role_title}
+- Core responsibilities:
+- Recurring routines:
+- Success looks like:
 
 ## Responsibilities
 
-What are the core responsibilities of your role? For each one, describe what it means and why it matters.
+I am ${role_title} at ${org_name}. Expand the durable responsibilities of this role and why they matter.
 
 ## Routines
 
-What are the recurring activities you perform to fulfill your responsibilities? Be specific — include cadences, times, and what good execution looks like.
+List the recurring activities that keep the responsibilities moving.
+
+## Boundaries
+
+State what this role should not own by default.
 EOF
+echo "  wrote ROLE.md"
 
-echo "  ✓ role.md created"
-echo ""
+cat > "$exo_path/GOALS.md" << EOF
+# GOALS
 
-# --- Goals ---
-echo "--- Goals ---"
-echo ""
-read -re -p "What is your current main goal or project? " goal1
+## Summary
 
-cat > "$exo_path/goals.md" << EOF
-# Goals
+- Current quarter:
+- Current month:
+- Current week:
+- Main active bet: ${main_goal}
 
-**${goal1}**
+## Active Goals
+
+- Goal: ${main_goal}
+  Why it matters:
+  Next concrete step:
+
+## Commitments
+
+- Recurring commitments that affect planning.
+
+## Deferred
+
+- Work that matters but is intentionally not active now.
 EOF
-
-echo "  ✓ goals.md created"
+echo "  wrote GOALS.md"
 echo ""
 
-# --- Attention ---
-echo "--- Attention ---"
-echo ""
-read -re -p "What is your focus right now? (one thing) " focus
-
-cat > "$exo_path/attention.md" << EOF
-${focus}
-EOF
-
-echo "  ✓ attention.md created"
-echo ""
-
-# --- Copy template files that don't need personalization ---
-echo "--- Copying templates ---"
-echo ""
-
-for file in CLAUDE.md AGENTS.md methods.md glossary.md contributing.md changelog.md promptlog.md; do
-  if [ -f "$TEMPLATE_DIR/$file" ]; then
-    cp "$TEMPLATE_DIR/$file" "$exo_path/$file"
-    echo "  ✓ $file"
-  fi
-done
-
-if [ -f "$TEMPLATE_REPO/README.md" ]; then
-  cp "$TEMPLATE_REPO/README.md" "$exo_path/README.md"
-  echo "  ✓ README.md"
-fi
-echo ""
-
-# --- Init git ---
 if [ ! -d "$exo_path/.git" ]; then
   read -re -p "Initialize a git repo in your exocortex? (Y/n) " init_git
   if [[ ! "$init_git" =~ ^[Nn]$ ]]; then
     git init "$exo_path" > /dev/null 2>&1
-    echo "  ✓ Git repo initialized"
+    echo "  Git repo initialized"
   fi
 fi
 echo ""
 
-# --- Done ---
 echo "=== Setup complete ==="
 echo ""
 echo "Your exocortex is at: $exo_path"
 echo ""
 echo "Next steps:"
-echo ""
 echo "  1. cd $exo_path"
-echo "  2. Open it in your AI coding tool (Cursor, Claude Code, etc.)"
-echo "  3. Review and expand each file — the guiding prompts will help"
+echo "  2. Open AGENTS.md, USER.md, STATE.md, and GOALS.md first"
+echo "  3. Tighten SOUL.md and TOOLS.md so the collaboration contract is explicit"
+echo "  4. Add any reusable procedures to SKILLS.md"
 echo ""
-echo "Files to flesh out:"
-echo "  - identity.md    Add your bio, worldview, and more values"
-echo "  - role.md        Add responsibilities and routines"
-echo "  - methods.md     Add your mental models and frameworks"
-echo "  - glossary.md    Add domain-specific terms"
-echo ""
-echo "Shared context (read-only, via org/ symlink):"
-echo "  - org/src/organization.md   Mission, strategy, values"
-echo "  - org/src/team/             Your colleagues' role files"
-echo "  - org/src/methods.md        Shared heuristics"
-echo "  - org/src/contributing.md   Shared logging conventions"
+echo "Org context, when present, is available through org/."
 echo ""

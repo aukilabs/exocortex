@@ -1,0 +1,59 @@
+version: 1
+
+bootstrap:
+  - AGENTS.md
+  - SOUL.md
+  - TOOLS.md
+  - USER.md
+  - STATE.md
+  - MEMORY.md
+
+files:
+  AGENTS.md:
+    purpose: bootstrap
+    tier: 0
+    mutable: rare
+  SOUL.md:
+    purpose: collaboration_contract
+    tier: 0
+    mutable: no
+  TOOLS.md:
+    purpose: tool_policy
+    tier: 0
+    mutable: rare
+  USER.md:
+    purpose: stable_user_facts
+    tier: 0
+    mutable: rare
+  STATE.md:
+    purpose: transient_state
+    tier: 0
+    mutable: yes
+  MEMORY.md:
+    purpose: durable_memory
+    tier: 0
+    mutable: yes
+  SKILLS.md:
+    purpose: skill_index
+    tier: 1
+    mutable: rare
+  STYLE.md:
+    purpose: writing_style
+    tier: 1
+    mutable: rare
+  ROLE.md:
+    purpose: role_reference
+    tier: 1
+    mutable: yes
+  GOALS.md:
+    purpose: goals_reference
+    tier: 1
+    mutable: yes
+  METHODS.md:
+    purpose: methods_reference
+    tier: 2
+    mutable: yes
+  HEARTBEAT.md:
+    purpose: proactive_jobs
+    tier: 2
+    mutable: yes

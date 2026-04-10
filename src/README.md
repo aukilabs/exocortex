@@ -1,50 +1,48 @@
 # src/
 
-This directory is the exocortex template. When a new colleague runs `git clone` and `bash setup.sh`, these files become their personal exocortex.
+This directory is the template for a personal exocortex. The refactor is intentionally lean:
 
-## What's here
+- a tiny canonical bootstrap pack
+- explicit separation between durable memory and transient state
+- on-demand loading for deeper alignment and skill files
+- no vendor-specific entrypoint
 
+## File Set
 
-| File              | Function                                                                                                                                                   |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CLAUDE.md`       | Tells the AI agent how to use the exocortex: reading order, alignment checks, behavior rules. This is the entry point — the agent reads this first.        |
-| `attention.md`    | Single-line file. The owner writes what they're focused on this session. The agent reads it and nudges them back if they drift. Only the owner edits this. |
-| `identity.md`     | Template for the owner's background, skills, perspective, and values. Values live here — not in a separate file.                                           |
-| `role.md`         | Template for the owner's responsibilities and routines. The CEO may provide a draft; the owner rewrites it in their own words.                             |
-| `goals.md`        | Template for daily habits, weekly routines, responsibilities, and projects.                                                                                |
-| `methods.md`      | Template for personal heuristics and mental models. Extends org-level methods.                                                                             |
-| `glossary.md`     | Template for domain-specific vocabulary.                                                                                                                   |
-| `contributing.md` | Logging rules: every change must be logged in the promptlog (first) and changelog. May extend org-level conventions.                                       |
-| `changelog.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
-| `promptlog.md`    | Seed promptlog with one example entry. Append-only, latest on top. Includes relevance scoring against attention.                                           |
-| `setup.sh`        | Interactive setup script. Creates org symlink, asks name, role, values, goals, and first attention focus. Populates template files with answers.            |
-| `examplenils/`    | Filled-in example of identity.md, role.md showing what a populated exocortex looks like.                                                                   |
+| File | Purpose | Default load |
+|------|---------|--------------|
+| `AGENTS.md` | Universal bootstrap, precedence, and write-back rules | Always |
+| `SOUL.md` | Collaboration contract and hard rules | Always |
+| `TOOLS.md` | Tool permissions and side-effect policy | Always |
+| `USER.md` | Stable facts and preferences | Always |
+| `STATE.md` | Current focus and active work | Always |
+| `MEMORY.md` | Curated durable memory | Always |
+| `SKILLS.md` | Reusable procedure index | On demand |
+| `STYLE.md` | Writing guidance | On demand |
+| `ROLE.md` | Role responsibilities and routines | On demand |
+| `GOALS.md` | Current goals and commitments | On demand |
+| `METHODS.md` | Mental models and decision heuristics | On demand |
+| `HEARTBEAT.md` | Desired proactive routines and fallbacks | Runtime-dependent |
+| `context.manifest.yaml` | Machine-readable load map | Optional |
+| `setup.sh` | Interactive scaffold for a new personal exocortex | N/A |
 
+## Setup Flow
 
-## The org layer
+`bash src/setup.sh` does the following:
 
-Organization-level context (mission, strategy, values, team role files, shared heuristics) lives in a separate org repo, symlinked into the exocortex as `org/`. The setup script creates this symlink. This means:
+1. Creates a new `exocortex/` directory under the chosen parent path.
+2. Optionally symlinks `org/` to a sibling org repo.
+3. Copies the stable template files.
+4. Writes personalized `USER.md`, `STATE.md`, `ROLE.md`, and `GOALS.md`.
+5. Creates an empty `skills/` directory for future playbooks.
+6. Optionally initializes a git repo.
 
-- `organization.md` is not in this template — it comes from the org repo
-- Shared methods and contributing conventions come from `org/src/`
-- Team role files live at `org/src/team/`
-- When leadership updates org context, everyone sees the change after a `git pull` of the org repo
+## Org Layer
 
-## How setup.sh works
+Org-level context is still expected to live in a separate repo, exposed through `org/`.
 
-1. Asks where you want your personal exocortex to live
-2. Creates that directory and symlinks `org/` to the org repo (sibling directory)
-3. Reads the org name from `org/src/organization.md`
-4. Prompts for name, role, values, goals, and initial attention focus
-5. Writes personalized files into the new directory
-6. Copies template files (methods.md, glossary.md, etc.) that you fill in over time
-7. Optionally initializes a git repo so you can track your own changes
+- `org/src/organization.md` is the primary org summary
+- `org/src/team/index.md` is the preferred entrypoint for team context
+- `org/src/methods.md` and other deep docs should be lazy-loaded
 
-The setup script never writes to this org repo — your personal files stay in your personal exocortex.
-
-## Dependencies
-
-- Git
-- Bash (for setup.sh)
-- A local clone of the [org](https://github.com/aukilabs/org) repo as a sibling directory (e.g. `aukilabs/org` next to `aukilabs/exocortex`)
-- An AI coding tool that reads CLAUDE.md (Claude Code, Cursor, etc.)
+The local exocortex stays small. Org and project context are pulled in only when the task needs them.
