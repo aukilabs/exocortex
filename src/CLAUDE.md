@@ -5,9 +5,9 @@ At the start of each session, pull the latest from the org repo so symlinked fil
 
 Read @attention.md at the start of each session. This is the owner's stated focus. If they stray from it, nudge them back. Never edit this file — only the owner changes their attention.
 
-Read @identity.md to learn about your collaborator — who they are, what they value. Goals must not clash with these values.
+Read @user.md to learn about your collaborator — who they are, what they value. Goals must not clash with these values.
 Read @org/src/organization.md to learn about where you and your collaborator work.
-Read @role.md to understand the role you are shouldering with your collaborator.
+Read @user_role.md to understand the role you are shouldering with your collaborator.
 Read @goals.md to understand current projects and goals.
 Read @org/src/team/ to know your collaborator's peers.
 
@@ -35,8 +35,8 @@ To orient on a project, read its readme.md first, then src/sprint.md for current
 
 When asked for tasks, generate a weekly task list by combining four inputs:
 
-1. **identity.md** — what this person can do (skills, background)
-2. **role.md** — what this person should do (responsibilities, routines)
+1. **user.md** — what this person can do (skills, background)
+2. **user_role.md** — what this person should do (responsibilities, routines)
 3. **goals.md** — personal habits, routines, responsibilities, and projects
 4. **sprint.md files** — what needs doing across linked projects
 

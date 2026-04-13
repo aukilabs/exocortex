@@ -13,7 +13,7 @@ echo ""
 echo "=== Exocortex Setup ==="
 echo ""
 echo "This will create your personal exocortex — a new directory"
-echo "with your identity, role, goals, and focus. It symlinks back"
+echo "with your user profile, role, goals, and focus. It symlinks back"
 echo "to this org repo for shared context."
 echo ""
 
@@ -32,7 +32,7 @@ exo_path="$parent_path/exocortex"
 echo ""
 echo "  → Will create: $exo_path"
 
-if [ -f "$exo_path/identity.md" ]; then
+if [ -f "$exo_path/user.md" ] || [ -f "$exo_path/identity.md" ]; then
   echo ""
   echo "  ⚠ An exocortex already exists at $exo_path."
   read -re -p "  Re-run setup and replace its files? (y/N) " confirm
@@ -73,8 +73,8 @@ else
 fi
 echo ""
 
-# --- Identity & Role ---
-echo "--- Identity ---"
+# --- User profile & role ---
+echo "--- User profile (user.md) ---"
 echo ""
 read -re -p "What is your name? " name
 read -re -p "What is your role/title? (e.g. 'Engineer') " role_title
@@ -83,12 +83,14 @@ echo ""
 read -re -p "What is your most important guiding value? " value1
 read -re -p "Why does it matter to you? " value1_why
 
-cat > "$exo_path/identity.md" << EOF
+cat > "$exo_path/user.md" << EOF
 Who are you? Write a short description of yourself — your name, what you do, and how you see the world.
 
 What lens or discipline shapes your thinking? (e.g. engineering, design, biology, economics, memetics)
 
 If you have a public bio, paste it here.
+
+What are your skills and capabilities? Identity is what you bring — your expertise, tools you're proficient with, languages you speak, domains you've worked in. Your user_role.md describes what the job demands; your user.md describes what you supply. The gap between the two is where growth happens.
 
 ## Identity
 
@@ -105,10 +107,13 @@ I am ${name}, ${role_title} at ${org_name}. I see the world through the lens of 
 ${value1_why}
 EOF
 
-echo "  ✓ identity.md created"
+echo "  ✓ user.md created"
 echo ""
 
-cat > "$exo_path/role.md" << EOF
+echo "--- Role (user_role.md) ---"
+echo ""
+
+cat > "$exo_path/user_role.md" << EOF
 What is your role? State your title and what your organization does, so your role has context.
 
 I am ${role_title} at ${org_name}.
@@ -124,7 +129,7 @@ What are the core responsibilities of your role? For each one, describe what it 
 What are the recurring activities you perform to fulfill your responsibilities? Be specific — include cadences, times, and what good execution looks like.
 EOF
 
-echo "  ✓ role.md created"
+echo "  ✓ user_role.md created"
 echo ""
 
 # --- Goals ---
@@ -192,8 +197,8 @@ echo "  2. Open it in your AI coding tool (Cursor, Claude Code, etc.)"
 echo "  3. Review and expand each file — the guiding prompts will help"
 echo ""
 echo "Files to flesh out:"
-echo "  - identity.md    Add your bio, worldview, and more values"
-echo "  - role.md        Add responsibilities and routines"
+echo "  - user.md        Add your bio, worldview, and more values"
+echo "  - user_role.md   Add responsibilities and routines"
 echo "  - methods.md     Add your mental models and frameworks"
 echo "  - glossary.md    Add domain-specific terms"
 echo ""
