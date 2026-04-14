@@ -61,7 +61,14 @@ See [roadmap.md](roadmap.md) for the project roadmap and [sprint.md](sprint.md) 
 
    Alternatively, you can give your AI agent access to your exocortex and let it manage it for you.
 
-4. **Keep shared context fresh**  
+4. **Link your active projects**  
+   Your exocortex is also where your active project work lives. After setup, open [`org/src/projects.md`](https://github.com/aukilabs/org/blob/main/src/projects.md) — the canonical list of Auki project repos. Clone the projects relevant to your work into a sibling directory (next to your `org` clone), then symlink each one into your exocortex root:
+
+       ln -s ~/path/to/project-repo ~/my-exocortex/project-name
+
+   Every project follows a standard structure (`readme.md`, `roadmap.md`, `src/sprint.md`, etc.) so the agent always knows where to look. To create a new project from scratch, see `org/src/contributing.md` § *Creating a new project*.
+
+5. **Keep shared context fresh**  
    When the org repo is updated, pull the latest changes there (your setup links your exocortex to that repo).
 
    In the terminal, navigate to the `aukilabs/org` repo and run `git pull`
