@@ -30,6 +30,20 @@ Organization-level context (mission, strategy, values, team role files, shared h
 - Team role files live at `org/src/team/`
 - When leadership updates org context, everyone sees the change after a `git pull` of the org repo
 
+## Projects
+
+Active project work doesn't live in this template — it lives in separate project repos that you symlink into your exocortex root. The agent reads each linked project's `readme.md` and `src/sprint.md` at session start so it knows what you're working on without having to be told.
+
+**The canonical list of Auki project repos lives in `org/src/projects.md`** — clone URLs and one-line descriptions for each. After running `setup.sh`, that's the file to read to find projects you should pull in.
+
+**Standard project structure** (every project follows this so agents always know where to look) is documented in `org/src/contributing.md` § *Creating a new project*. The short version: `readme.md`, `roadmap.md`, `glossary.md`, `changelog.md`, `parking_lot.md`, `src/`, `src/readme.md`, `src/sprint.md`.
+
+To symlink an existing project into your exocortex:
+
+    ln -s ~/path/to/project-repo ~/my-exocortex/project-name
+
+The agent's `CLAUDE.md` already knows to look for projects in the exocortex root — this section is here so you, the human, know it too.
+
 ## How setup.sh works
 
 1. Asks where you want your personal exocortex to live
