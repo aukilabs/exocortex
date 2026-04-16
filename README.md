@@ -8,8 +8,6 @@ You are strangers, every time.
 
 An exocortex fixes this. It's a structured external memory — a set of files that give your AI agent persistent context about who you are, what you're working on, and why it matters. Your agent reads these files at the start of every session and becomes a collaborator that knows you, challenges you, and holds you accountable.
 
-We believe that AI's most transformative capability is not intelligence augmentation but **conscientiousness augmentation** — the ability to help individuals and organizations stay goal-oriented across time, across context switches, across the natural drift of attention.
-
 You are not the author of your own thoughts. But you can write the prompt that prompts you back.
 
 ## The vision
@@ -36,39 +34,34 @@ See [roadmap.md](roadmap.md) for the project roadmap and [sprint.md](sprint.md) 
 
 **Steps**
 
-1. **Clone both repositories**  
-   Clone the **[org](https://github.com/aukilabs/org)** repo and this **exocortex** repo into the same parent directory. They must sit next to each other so the setup script can connect them.
-
+1. **Clone both repositories**
+  Clone the **[org](https://github.com/aukilabs/org)** repo and this **exocortex** repo into the same parent directory. They must sit next to each other so the setup script can connect them.
    Open your terminal and go to the desired parent directory, for example `aukilabs` (make sure it exists).
-
-       cd aukilabs
-      
+  ```
+   cd aukilabs
+  ```
    Then run:
-
-       git clone git@github.com:aukilabs/org.git
-       git clone git@github.com:aukilabs/exocortex.git
-
-2. **Run the setup script**  
-   In your terminal, go into the exocortex project. Then run the setup script. 
-   
-       cd exocortex
-       bash src/setup.sh
-
+  ```
+   git clone git@github.com:aukilabs/org.git
+   git clone git@github.com:aukilabs/exocortex.git
+  ```
+2. **Run the setup script**
+  In your terminal, go into the exocortex project. Then run the setup script. 
+  ```
+   cd exocortex
+   bash src/setup.sh
+  ```
    The script is **interactive**. It will ask where to create your personal exocortex (don't choose the same `aukilabs` directory), then ask simple questions: your name, role, what you care about, what you’re working toward, and what you’re focused on today. Your responses will be recorded in the starter files for you.
-
-3. **Open your new exocortex in Cursor or give it to your agent**  
-   When the script finishes, navigate to where you specified your personal exocortex should be and open that folder in Cursor. Over time you’ll edit the markdown files there; the AI reads them at the start of sessions so it stays aligned with you.
-
+3. **Open your new exocortex in Cursor or give it to your agent**
+  When the script finishes, navigate to where you specified your personal exocortex should be and open that folder in Cursor. Over time you’ll edit the markdown files there; the AI reads them at the start of sessions so it stays aligned with you.
    Alternatively, you can give your AI agent access to your exocortex and let it manage it for you.
-
-4. **Link your active projects**  
-   Your exocortex is also where your active project work lives. After setup, open [`org/src/projects.md`](https://github.com/aukilabs/org/blob/main/src/projects.md) — the canonical list of Auki project repos. Clone the projects relevant to your work into a sibling directory (next to your `org` clone), then symlink each one into your exocortex root:
-
-       ln -s ~/path/to/project-repo ~/my-exocortex/project-name
-
+4. **Link your active projects**
+  Your exocortex is also where your active project work lives. After setup, open `[org/src/projects.md](https://github.com/aukilabs/org/blob/main/src/projects.md)` — the canonical list of Auki project repos. Clone the projects relevant to your work into a sibling directory (next to your `org` clone), then symlink each one into your exocortex root:
+  ```
+   ln -s ~/path/to/project-repo ~/my-exocortex/project-name
+  ```
    Every project follows a standard structure (`readme.md`, `roadmap.md`, `src/sprint.md`, etc.) so the agent always knows where to look. To create a new project from scratch, see `org/src/contributing.md` § *Creating a new project*.
-
-5. **Keep shared context fresh**  
-   When the org repo is updated, pull the latest changes there (your setup links your exocortex to that repo).
-
+5. **Keep shared context fresh**
+  When the org repo is updated, pull the latest changes there (your setup links your exocortex to that repo).
    In the terminal, navigate to the `aukilabs/org` repo and run `git pull`
+
