@@ -7,28 +7,28 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 
 | File              | Function                                                                                                                                                   |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CLAUDE.md`       | Tells the AI agent how to use the exocortex: reading order, alignment checks, behavior rules. This is the entry point — the agent reads this first.        |
+| `AGENTS.md`       | Single entry point for AI agents: session behavior (read order, alignment, tasks, docs). Includes an **Autonomous-only** subsection for background agents — interactive tools follow the rest. |
 | `attention.md`    | Single-line file. The owner writes what they're focused on this session. The agent reads it and nudges them back if they drift. Only the owner edits this. |
-| `identity.md`     | Template for the owner's background, skills, perspective, and values. Values live here — not in a separate file.                                           |
-| `role.md`         | Template for the owner's responsibilities and routines. The CEO may provide a draft; the owner rewrites it in their own words.                             |
+| `user.md`         | Template for the owner's background, skills, perspective, and values. Values live here — not in a separate file.                                           |
+| `user_role.md`    | Template for the owner's responsibilities and routines. The CEO may provide a draft; the owner rewrites it in their own words.                             |
 | `goals.md`        | Template for daily habits, weekly routines, responsibilities, and projects.                                                                                |
 | `methods.md`      | Template for personal heuristics and mental models. Extends org-level methods.                                                                             |
 | `glossary.md`     | Template for domain-specific vocabulary.                                                                                                                   |
 | `contributing.md` | Logging rules: every change must be logged in the promptlog (first) and changelog. May extend org-level conventions.                                       |
 | `changelog.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
 | `promptlog.md`    | Seed promptlog with one example entry. Append-only, latest on top. Includes relevance scoring against attention.                                           |
-| `setup.sh`        | Interactive setup script. Creates org symlink, asks name, role, values, goals, and first attention focus. Populates template files with answers.            |
-| `examplenils/`    | Filled-in example of identity.md, role.md showing what a populated exocortex looks like.                                                                   |
+| `setup.sh`        | Interactive setup script. Symlinks org context (`../org` or `../org-auki`), asks name, role, values, goals, and first attention focus. Populates template files with answers. |
+| `examplenils/`    | Filled-in example of user.md, user_role.md showing what a populated exocortex looks like.                                                                   |
 
 
 ## The org layer
 
-Organization-level context (mission, strategy, values, team role files, shared heuristics) lives in a separate org repo, symlinked into the exocortex as `org/`. The setup script creates this symlink. This means:
+Organization-level context (mission, strategy, values, team role files, shared heuristics) lives in a separate org repo, symlinked into the exocortex as `org/`. The setup script looks for a sibling **`org`** clone first (Auki private), then **`org-auki`** (public open-source context); either is symlinked as `org/` in your exocortex. This means:
 
 - `organization.md` is not in this template — it comes from the org repo
 - Shared methods and contributing conventions come from `org/src/`
-- Team role files live at `org/src/team/`
-- When leadership updates org context, everyone sees the change after a `git pull` of the org repo
+- Team role files live at `org/src/team/` (where present in your org clone)
+- When that org repo is updated, everyone sees the change after a `git pull` in the cloned repo
 
 ## Projects
 
@@ -42,12 +42,12 @@ To symlink an existing project into your exocortex:
 
     ln -s ~/path/to/project-repo ~/my-exocortex/project-name
 
-The agent's `CLAUDE.md` already knows to look for projects in the exocortex root — this section is here so you, the human, know it too.
+The agent's `AGENTS.md` already knows to look for projects in the exocortex root — this section is here so you, the human, know it too.
 
 ## How setup.sh works
 
 1. Asks where you want your personal exocortex to live
-2. Creates that directory and symlinks `org/` to the org repo (sibling directory)
+2. Creates that directory and symlinks `org/` to the org repo: sibling `../org` if present, else `../org-auki`, else asks for a path
 3. Reads the org name from `org/src/organization.md`
 4. Prompts for name, role, values, goals, and initial attention focus
 5. Writes personalized files into the new directory
@@ -60,5 +60,5 @@ The setup script never writes to this org repo — your personal files stay in y
 
 - Git
 - Bash (for setup.sh)
-- A local clone of the [org](https://github.com/aukilabs/org) repo as a sibling directory (e.g. `aukilabs/org` next to `aukilabs/exocortex`)
-- An AI coding tool that reads CLAUDE.md (Claude Code, Cursor, etc.)
+- A local clone of [org](https://github.com/aukilabs/org) (Auki employees) or [org-auki](https://github.com/aukilabs/org-auki) (public) as a sibling directory next to `exocortex` — `setup.sh` prefers `org`, then `org-auki`
+- An AI coding tool that loads `AGENTS.md` (Cursor, Claude Code, Hermes, etc.)

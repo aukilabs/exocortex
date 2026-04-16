@@ -1,1 +1,1 @@
-I am a colleague at Auki setting up my exocortex. I want to make sure I've understood how the exocortex works, and that I've provided relevant information to my role.md, my methods.md and my values.md
+I am a colleague at Auki setting up my exocortex. I want to make sure I've understood how the exocortex works, and that I've provided relevant information to my user.md, user_role.md, and methods.md

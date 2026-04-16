@@ -6,11 +6,11 @@ This is a real, filled-in exocortex. Use it to get a sense of what each file doe
 
 | File | What it does |
 |------|-------------|
-| **claude.md** | Instructions for the AI agent — the reading order and alignment checks it follows every session |
-| **identity.md** | Who the owner is, how they see the world, their public bio |
+| **AGENTS.md** | Instructions for the AI agent — reading order, alignment, tasks; includes autonomous-only rules for background agents |
+| **user.md** | Who the owner is, how they see the world, their public bio |
 | **values.md** | Personal guiding values with explanations of what each one means in practice |
 | **organization.md** | The company's mission, context, and cultural values |
-| **role.md** | The owner's responsibilities and recurring routines as CEO |
+| **user_role.md** | The owner's responsibilities and recurring routines |
 | **methods.md** | Mental models and frameworks the owner uses regularly (NASA, LEIA, Why/How/What) |
 | **glossary.md** | Domain-specific terms the agent needs to use correctly |
 

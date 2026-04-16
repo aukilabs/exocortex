@@ -7,14 +7,15 @@ set -e
 
 TEMPLATE_REPO="$(cd "$(dirname "$0")/.." && pwd)"
 TEMPLATE_DIR="$TEMPLATE_REPO/src"
-ORG_REPO="$TEMPLATE_REPO/../org"
+ORG_PRIMARY="$TEMPLATE_REPO/../org"
+ORG_PUBLIC="$TEMPLATE_REPO/../org-auki"
 
 echo ""
 echo "=== Exocortex Setup ==="
 echo ""
 echo "This will create your personal exocortex — a new directory"
-echo "with your identity, role, goals, and focus. It symlinks back"
-echo "to this org repo for shared context."
+echo "with your user profile, role, goals, and focus. It symlinks back"
+echo "to shared org context."
 echo ""
 
 # --- Where to create the personal exocortex ---
@@ -32,7 +33,7 @@ exo_path="$parent_path/exocortex"
 echo ""
 echo "  → Will create: $exo_path"
 
-if [ -f "$exo_path/identity.md" ]; then
+if [ -f "$exo_path/user.md" ] || [ -f "$exo_path/identity.md" ]; then
   echo ""
   echo "  ⚠ An exocortex already exists at $exo_path."
   read -re -p "  Re-run setup and replace its files? (y/N) " confirm
@@ -46,13 +47,19 @@ mkdir -p "$exo_path"
 echo "  ✓ Directory ready at $exo_path"
 echo ""
 
-# --- Find the org repo ---
+# --- Find the org repo: sibling ../org (Auki private), else ../org-auki (public), else prompt ---
 echo "--- Organization ---"
 echo ""
 
+ORG_REPO="$ORG_PRIMARY"
 if [ ! -d "$ORG_REPO/src" ]; then
-  echo "  Could not find the org repo at $ORG_REPO."
-  echo "  The org repo should be a sibling directory named 'org'."
+  ORG_REPO="$ORG_PUBLIC"
+fi
+
+if [ ! -d "$ORG_REPO/src" ]; then
+  echo "  Could not find a sibling org repo at:"
+  echo "    $ORG_PRIMARY   (Auki employees: aukilabs/org)"
+  echo "    $ORG_PUBLIC  (open source: aukilabs/org-auki)"
   read -re -p "  Path to org repo (or leave blank to skip): " custom_org
   if [ -n "$custom_org" ]; then
     custom_org="${custom_org/#\~/$HOME}"
@@ -73,8 +80,8 @@ else
 fi
 echo ""
 
-# --- Identity & Role ---
-echo "--- Identity ---"
+# --- User profile & role ---
+echo "--- User profile (user.md) ---"
 echo ""
 read -re -p "What is your name? " name
 read -re -p "What is your role/title? (e.g. 'Engineer') " role_title
@@ -83,12 +90,14 @@ echo ""
 read -re -p "What is your most important guiding value? " value1
 read -re -p "Why does it matter to you? " value1_why
 
-cat > "$exo_path/identity.md" << EOF
+cat > "$exo_path/user.md" << EOF
 Who are you? Write a short description of yourself — your name, what you do, and how you see the world.
 
 What lens or discipline shapes your thinking? (e.g. engineering, design, biology, economics, memetics)
 
 If you have a public bio, paste it here.
+
+What are your skills and capabilities? Identity is what you bring — your expertise, tools you're proficient with, languages you speak, domains you've worked in. Your user_role.md describes what the job demands; your user.md describes what you supply. The gap between the two is where growth happens.
 
 ## Identity
 
@@ -105,10 +114,13 @@ I am ${name}, ${role_title} at ${org_name}. I see the world through the lens of 
 ${value1_why}
 EOF
 
-echo "  ✓ identity.md created"
+echo "  ✓ user.md created"
 echo ""
 
-cat > "$exo_path/role.md" << EOF
+echo "--- Role (user_role.md) ---"
+echo ""
+
+cat > "$exo_path/user_role.md" << EOF
 What is your role? State your title and what your organization does, so your role has context.
 
 I am ${role_title} at ${org_name}.
@@ -124,7 +136,7 @@ What are the core responsibilities of your role? For each one, describe what it 
 What are the recurring activities you perform to fulfill your responsibilities? Be specific — include cadences, times, and what good execution looks like.
 EOF
 
-echo "  ✓ role.md created"
+echo "  ✓ user_role.md created"
 echo ""
 
 # --- Goals ---
@@ -157,7 +169,7 @@ echo ""
 echo "--- Copying templates ---"
 echo ""
 
-for file in CLAUDE.md AGENTS.md methods.md glossary.md contributing.md changelog.md promptlog.md; do
+for file in AGENTS.md methods.md glossary.md contributing.md changelog.md promptlog.md; do
   if [ -f "$TEMPLATE_DIR/$file" ]; then
     cp "$TEMPLATE_DIR/$file" "$exo_path/$file"
     echo "  ✓ $file"
@@ -192,8 +204,8 @@ echo "  2. Open it in your AI coding tool (Cursor, Claude Code, etc.)"
 echo "  3. Review and expand each file — the guiding prompts will help"
 echo ""
 echo "Files to flesh out:"
-echo "  - identity.md    Add your bio, worldview, and more values"
-echo "  - role.md        Add responsibilities and routines"
+echo "  - user.md        Add your bio, worldview, and more values"
+echo "  - user_role.md   Add responsibilities and routines"
 echo "  - methods.md     Add your mental models and frameworks"
 echo "  - glossary.md    Add domain-specific terms"
 echo ""

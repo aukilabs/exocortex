@@ -4,7 +4,7 @@ What lens or discipline shapes your thinking? (e.g. engineering, design, biology
 
 If you have a public bio, paste it here.
 
-What are your skills and capabilities? Identity is what you bring — your expertise, tools you're proficient with, languages you speak, domains you've worked in. Your role.md describes what the job demands; your identity.md describes what you supply. The gap between the two is where growth happens.
+What are your skills and capabilities? Identity is what you bring — your expertise, tools you're proficient with, languages you speak, domains you've worked in. Your user_role.md describes what the job demands; your user.md describes what you supply. The gap between the two is where growth happens.
 
 ## Identity
 

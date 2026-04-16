@@ -1,6 +1,9 @@
 # Contributing
 
-Every change to any document in this repo should be logged in changelog.md and promptlog.md.
+**Maintaining the exocortex template repository:** Record changes in the **root** `changelog.md` only. Do not append project history to `src/changelog.md` or `src/promptlog.md`—those files are seeds copied unchanged when someone runs `setup.sh`.
+
+Every change to any document in **your personal** exocortex (after setup) should be logged in changelog.md and promptlog.md.
+
 If we are editing a file in a loaded repo, make sure to respect the changelog conventions of that repo. Project-level repos use an **Author** field instead of PromptID in their changelogs, since they have multiple contributors and no single promptlog.
 
 **Always update promptlog.md before changelog.md.** The changelog references PromptIDs, so the promptlog entry must exist first to avoid dangling references.
@@ -18,7 +21,7 @@ Append-only, prepend latest entry on top.
 | **Prompt** | The original prompt (summarized if long) |
 | **Relevance** | 0–1 score against the current attention goal in attention.md |
 
-The relevance score resets each session (since attention goals change between sessions). If the last 10 prompts in the current session have a cumulative relevance below 0.5, Claude should challenge the owner to refocus.
+The relevance score resets each session (since attention goals change between sessions). If the last 10 prompts in the current session have a cumulative relevance below 0.5, the agent should challenge the owner to refocus.
 
 ## Changelog
 
@@ -33,6 +36,6 @@ Append-only, prepend latest entry on top.
 
 Humans may manually add to the changelog using their name as the PromptID. Human entries do not count towards the PromptID sequence counter.
 
-## Claude.md
+## AGENTS.md
 
-Instructions for how Claude should collaborate with the owner. See the file for details.
+Instructions for how the agent should collaborate with the owner. See the file for details.

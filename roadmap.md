@@ -4,7 +4,7 @@
 
 - Three-layer architecture designed and documented (local/org/project)
 - Org repo created (`aukilabs/org`) with organization.md, methods.md, contributing.md, glossary.md, team/
-- Template restructured — clone, symlink org, populate identity/role, go
+- Template restructured — clone, symlink org, populate user.md / user_role.md, go
 - setup.sh creates org symlink
 - CEO cortex running on the architecture (dog-fooding)
 - 6 team role files written (BD, Marketing, DevRel, Spatial, Networking, Robotics)
@@ -31,7 +31,7 @@
 - First cross-exocortex audit — CEO reads each colleague's exocortex and checks alignment (role↔goals↔org mission)
 - Resolve open design questions:
   - Auto-pull for org repo (git hook, cron, or manual?)
-  - Should CLAUDE.md have an org layer? (shared behavior rules everyone inherits)
+  - Should AGENTS.md have an org layer? (shared behavior rules everyone inherits)
   - Method/value precedence when personal conflicts with org
 
 **Done when:** Every project leader has a working exocortex. Onboarding is documented well enough that the next hire can self-serve.
@@ -41,7 +41,7 @@
 **Owner:** Nils + Freddie (COO owns process adoption)
 
 - Exocortex setup is part of day-one onboarding for every new hire
-- Org-level CLAUDE.md — shared behavior rules that every agent inherits, personal overrides on top
+- Org-level AGENTS.md — shared behavior rules that every agent inherits, personal overrides on top
 - Project exocortices for every active Auki project (readme, roadmap, sprint, glossary, changelog at repo root)
 - Weekly CEO audit rhythm: review one colleague's exocortex per week, check goal↔mission alignment
 - First structured Fika using exocortex context (agent prepares alignment briefing)
@@ -71,6 +71,6 @@
 | Milestone | Depends on |
 |-----------|-----------|
 | Team-wide rollout | Onboarding wave 1 proving the process works |
-| Org-level CLAUDE.md | Resolving method/value precedence design question |
+| Org-level AGENTS.md | Resolving method/value precedence design question |
 | Async exocortex | Matthieu + Tracy's WhatsApp/Telegram work |
 | Open-source | Team-wide adoption proving the system works at org scale |
