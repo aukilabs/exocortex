@@ -21,7 +21,7 @@ Radiant is the alignment layer. It doesn't replace the ExoCortex — it reads th
 Two different intelligences are working together at Auki every day — human intelligence and artificial intelligence. Each has its own strengths. Each operates differently. Neither is a lesser version of the other.
 
 <p align="center">
-  <img src="../../images/neuroverse-two-gyroscopes.png" alt="The NeuroVerse — human intelligence and AI intelligence as two systems inside a shared universe" width="600" />
+  <img src="./images/neuroverse-two-gyroscopes.png" alt="The NeuroVerse — human intelligence and AI intelligence as two systems inside a shared universe" width="600" />
 </p>
 
 NeuroverseOS is the universe these two intelligences meet inside — defined by the behaviors Auki has agreed upon: the vision, the strategy, the non-negotiables. All organizations gather people around declared shared intent. NeuroverseOS tools define those intentions into behaviors — and those behaviors become a constitution carried out at runtime.
@@ -33,9 +33,9 @@ Radiant ships with two worldmodels authored for Auki:
 **Auki Vanguard** — the leadership model. Three domains that define how Auki leads: the skills needed for strategic thinking and systems design, the skills needed for authentic storytelling and community building, the skills needed for collaboration, fairness, and shared wealth creation. When these three work together, trust, inspiration, and hope emerge. When all three integrate fully, the team operates as a collective vanguard leader.
 
 <p align="center">
-  <img src="../../images/auki-vanguard-diagram.png" alt="Auki Vanguard Model — three domains with overlap states" width="48%" />
+  <img src="./images/auki-vanguard-diagram.png" alt="Auki Vanguard Model — three domains with overlap states" width="48%" />
   &nbsp;
-  <img src="../../images/auki-vanguard-skills.png" alt="Auki Vanguard Skills — 30 skills across three domains" width="48%" />
+  <img src="./images/auki-vanguard-skills.png" alt="Auki Vanguard Skills — 30 skills across three domains" width="48%" />
 </p>
 
 **Auki Strategy** — the goals and required behaviors. Posemesh, Sixth Protocol, cognitive liberty, DePIN, Intercognitive coalition. The invariants: cognitive liberty preserved, decentralization before aggregation, perception before locomotion, protocol not product, sovereignty over convenience.
