@@ -20,6 +20,38 @@ The organization's exocortex — shared files like `organization.md`, `methods.m
 
 When we get this right, our intercognitive bandwidth increases: our ability to think, experience, and solve problems together with each other and AI.
 
+## Four levels
+
+The exocortex exists at four levels, each a different scope of shared context:
+
+- **User level** — a single person and their AI agent. Where identity, role, goals, and daily attention live. Each person has their own personal exocortex repo.
+- **Organization level** — context shared across everyone at the company. Mission, strategy, team, conventions. Lives in the org repo (e.g. `aukilabs/org`) and is symlinked into each person's exocortex as `org/`.
+- **Project level** — an individual repo or piece of work, usually with its own team. Lives in that project's own repo (e.g. `aukilabs/relay`).
+- **Quest level** — a cross-repo project where no single repo can own the state. Lives under `org/src/quests/{slug}/` so every project lead has visibility.
+
+When working, you open your personal exocortex and symlink in the organization repo plus whichever project and quest directories are active for you. Your agent then reads across all four levels to build its context.
+
+### Structural files
+
+Each level carries the same three structural files:
+
+- `AGENTS.md` — the entry point for the AI agent at that level. Session behavior, read order, alignment rules.
+- `CONTRIBUTING.md` — logging conventions (changelog; promptlog at user level). May extend what the enclosing level says.
+- `CHANGELOG.md` — append-only record of what changed and why, latest on top.
+
+And one identity file per level, answering "what is this?":
+
+| Level | Identity file |
+|-------|---------------|
+| User | `user.md` + `user_role.md` |
+| Organization | `organization.md` |
+| Project | `vision.md` (distinct from GitHub's `README.md`) |
+| Quest | `README.md` |
+
+`vision.md` at the project level is separate from `README.md` because a project repo's root `README.md` is GitHub's landing page — that slot is already doing discovery and setup work. `vision.md` holds the aspirational "why this exists" without competing for it.
+
+Quests live inside `org/src/quests/{slug}/`, not at a repo root, so `README.md` at the quest level has no such conflict and serves as the identity file directly.
+
 ## Current state
 
 The `src/` directory contains the exocortex template — the set of files that any Auki employee can clone to set up their own exocortex. See [src/README.md](src/README.md) for a file-by-file description and how `setup.sh` works.

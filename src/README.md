@@ -12,7 +12,6 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 | `user.md`         | Template for the owner's background, skills, perspective, and values. Values live here — not in a separate file.                                           |
 | `user_role.md`    | Template for the owner's responsibilities and routines. The CEO may provide a draft; the owner rewrites it in their own words.                             |
 | `goals.md`        | Template for daily habits, weekly routines, responsibilities, and projects.                                                                                |
-| `methods.md`      | Template for personal heuristics and mental models. Extends org-level methods.                                                                             |
 | `glossary.md`     | Template for domain-specific vocabulary.                                                                                                                   |
 | `contributing.md` | Logging rules: every change must be logged in the promptlog (first) and changelog. May extend org-level conventions.                                       |
 | `changelog.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
@@ -26,9 +25,10 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 Organization-level context (mission, strategy, values, team role files, shared heuristics) lives in a separate org repo, symlinked into the exocortex as `org/`. The setup script looks for a sibling **`org`** clone first (Auki private), then **`org-auki`** (public open-source context); either is symlinked as `org/` in your exocortex. This means:
 
 - `organization.md` is not in this template — it comes from the org repo
-- Shared methods and contributing conventions come from `org/src/`
+- Shared contributing conventions come from `org/src/contributing.md`
+- Shared procedural skills live at `org/src/skills/` (auto-loaded by your agent when a skill's description matches the task)
 - Team role files live at `org/src/team/` (where present in your org clone)
-- When that org repo is updated, everyone sees the change after a `git pull` in the cloned repo
+- When the org repo is updated, everyone sees the change after a `git pull` in the cloned repo
 
 ## Projects
 
@@ -36,13 +36,23 @@ Active project work doesn't live in this template — it lives in separate proje
 
 **The canonical list of Auki project repos lives in `org/src/projects.md`** — clone URLs and one-line descriptions for each. After running `setup.sh`, that's the file to read to find projects you should pull in.
 
-**Standard project structure** (every project follows this so agents always know where to look) is documented in `org/src/contributing.md` § *Creating a new project*. The short version: `readme.md`, `roadmap.md`, `glossary.md`, `changelog.md`, `parking_lot.md`, `src/`, `src/readme.md`, `src/sprint.md`.
+**Standard project structure** (every project follows this so agents always know where to look) is documented in the `project-scaffold` skill at `org/src/skills/project-scaffold/`. The short version: `vision.md`, `README.md`, `roadmap.md`, `glossary.md`, `changelog.md`, `parking_lot.md`, `src/`, `src/readme.md`, `src/sprint.md`.
 
 To symlink an existing project into your exocortex:
 
     ln -s ~/path/to/project-repo ~/my-exocortex/project-name
 
 The agent's `AGENTS.md` already knows to look for projects in the exocortex root — this section is here so you, the human, know it too.
+
+## Quests
+
+A **quest** is a cross-repo project — work that spans multiple repos where no single repo can own the state. Quests live inside the org repo at `org/src/quests/{slug}/`, so cloning `org` already gives you every quest. You can still symlink an active quest into your exocortex root for top-level access, the same way you would a project:
+
+    ln -s ~/path/to/aukilabs-org/src/quests/{slug} ~/my-exocortex/{slug}
+
+**Quests are listed alongside project repos in `org/src/projects.md`** — one canonical index for all the work at Auki. The per-quest detail (roadmap, sprints, changelog, parking lot) lives in that quest's own directory.
+
+**Quest structure** is documented in the `quest-scaffold` skill at `org/src/skills/quest-scaffold/`. Use a quest when a single project can't cleanly own the work; otherwise prefer the standard project structure.
 
 ## How setup.sh works
 
@@ -51,7 +61,7 @@ The agent's `AGENTS.md` already knows to look for projects in the exocortex root
 3. Reads the org name from `org/src/organization.md`
 4. Prompts for name, role, values, goals, and initial attention focus
 5. Writes personalized files into the new directory
-6. Copies template files (methods.md, glossary.md, etc.) that you fill in over time
+6. Copies template files (glossary.md, etc.) that you fill in over time
 7. Optionally initializes a git repo so you can track your own changes
 
 The setup script never writes to this org repo — your personal files stay in your personal exocortex.
