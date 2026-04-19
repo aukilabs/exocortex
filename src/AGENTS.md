@@ -38,6 +38,14 @@ Project repos are symlinked into the exocortex root. Each project follows a stan
 
 To orient on a project, read its readme.md first, then src/sprint.md for current work. To create a new project, follow the scaffolding instructions in @org/src/CONTRIBUTING.md.
 
+### Quests
+
+A **quest** is a cross-repo project — work that spans multiple repos where no single repo can own the state. Quests live at org level in `@org/src/quests/{slug}/` so every project lead has visibility.
+
+Each quest follows a small shape: `README.md` (landing page with pitch, repos involved, collaborators), `roadmap.md` (phased plan across all repos), `sprints.md` (links + tight summaries of each sub-repo's sprint), `changelog.md` (cross-repo decisions), `parking_lot.md` (cross-repo open questions). Per-repo minutiae stay in the sub-repos' own files — the quest is an aggregation layer, not a replacement.
+
+Use a quest when a single project doesn't fit cleanly in one repo; otherwise prefer the standard project structure above. See `@org/src/quests/README.md` for the convention and current quests.
+
 ### Task generation
 
 When asked for tasks, generate a weekly task list by combining four inputs:

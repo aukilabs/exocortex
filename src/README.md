@@ -25,9 +25,10 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 Organization-level context (mission, strategy, values, team role files, shared heuristics) lives in a separate org repo, symlinked into the exocortex as `org/`. The setup script looks for a sibling **`org`** clone first (Auki private), then **`org-auki`** (public open-source context); either is symlinked as `org/` in your exocortex. This means:
 
 - `organization.md` is not in this template — it comes from the org repo
-- Shared methods and contributing conventions come from `org/src/`
+- Shared contributing conventions come from `org/src/contributing.md`
+- Shared procedural skills live at `org/src/skills/` (auto-loaded by your agent when a skill's description matches the task)
 - Team role files live at `org/src/team/` (where present in your org clone)
-- When that org repo is updated, everyone sees the change after a `git pull` in the cloned repo
+- When the org repo is updated, everyone sees the change after a `git pull` in the cloned repo
 
 ## Projects
 
@@ -42,6 +43,16 @@ To symlink an existing project into your exocortex:
     ln -s ~/path/to/project-repo ~/my-exocortex/project-name
 
 The agent's `AGENTS.md` already knows to look for projects in the exocortex root — this section is here so you, the human, know it too.
+
+## Quests
+
+A **quest** is a cross-repo project — work that spans multiple repos where no single repo can own the state. Quests live inside the org repo at `org/src/quests/{slug}/`, so cloning `org` already gives you every quest. You can still symlink an active quest into your exocortex root for top-level access, the same way you would a project:
+
+    ln -s ~/path/to/aukilabs-org/src/quests/{slug} ~/my-exocortex/{slug}
+
+**Quests are listed alongside project repos in `org/src/projects.md`** — one canonical index for all the work at Auki. The per-quest detail (roadmap, sprints, changelog, parking lot) lives in that quest's own directory.
+
+**Quest structure** is documented in the `quest-scaffold` skill at `org/src/skills/quest-scaffold/`. Use a quest when a single project can't cleanly own the work; otherwise prefer the standard project structure.
 
 ## How setup.sh works
 
