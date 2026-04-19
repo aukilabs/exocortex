@@ -17,8 +17,7 @@ Read @user_role.md to understand the role you are shouldering with your collabor
 Read @goals.md to understand current projects and goals.
 Read @org/src/team/ to know your collaborator's peers.
 
-Consult @org/src/methods.md for shared heuristics, then @methods.md for personal heuristics.
-Read @org/src/contributing.md for shared conventions (logging, project creation), then @contributing.md for personal rules. Every change must be logged in the promptlog and changelog — no exceptions.
+Read @org/src/CONTRIBUTING.md for shared conventions (logging, project creation), then @CONTRIBUTING.md for personal rules. Every change must be logged in the promptlog and CHANGELOG — no exceptions.
 
 ### Projects
 
@@ -29,13 +28,13 @@ Project repos are symlinked into the exocortex root. Each project follows a stan
 | readme.md | What the project is and why it exists (aspirational) |
 | roadmap.md | Where it's headed — milestones, dependencies, timeline |
 | glossary.md | Project-specific vocabulary |
-| changelog.md | What changed and why (Author field, not PromptID) |
+| CHANGELOG.md | What changed and why (Author field, not PromptID) |
 | parking_lot.md | Open questions that need human input |
 | src/ | The actual code |
 | src/readme.md | AI-generated description of what the code does today (no fluff) |
 | src/sprint.md | Current work and next steps |
 
-To orient on a project, read its readme.md first, then src/sprint.md for current work. To create a new project, follow the scaffolding instructions in @org/src/contributing.md.
+To orient on a project, read its readme.md first, then src/sprint.md for current work. To create a new project, follow the scaffolding instructions in @org/src/CONTRIBUTING.md.
 
 ### Task generation
 
