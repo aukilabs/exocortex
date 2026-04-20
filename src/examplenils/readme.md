@@ -11,7 +11,6 @@ This is a real, filled-in exocortex. Use it to get a sense of what each file doe
 | **values.md** | Personal guiding values with explanations of what each one means in practice |
 | **organization.md** | The company's mission, context, and cultural values |
 | **user_role.md** | The owner's responsibilities and recurring routines |
-| **methods.md** | Mental models and frameworks the owner uses regularly (NASA, LEIA, Why/How/What) |
 | **glossary.md** | Domain-specific terms the agent needs to use correctly |
 
 ## How to use this

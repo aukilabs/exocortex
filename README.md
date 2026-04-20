@@ -16,7 +16,7 @@ Every employee at Auki has an exocortex. Every function has an exocortex. Every 
 
 Individual exocortices carry identity (including values), role, goals, and attention. They make each person more productive and more aligned with the mission.
 
-The organization's exocortex — shared files like `organization.md`, `methods.md`, and team role files — gives every agent on the team the same foundational context through a symlinked org repo. Alignment isn't a quarterly exercise. It's continuous, maintained by the system itself.
+The organization's exocortex — shared files like `organization.md`, `skills/`, and team role files — gives every agent on the team the same foundational context through a symlinked org repo. Alignment isn't a quarterly exercise. It's continuous, maintained by the system itself.
 
 When we get this right, our intercognitive bandwidth increases: our ability to think, experience, and solve problems together with each other and AI.
 
@@ -101,7 +101,7 @@ See [roadmap.md](roadmap.md) for the project roadmap and [sprint.md](sprint.md) 
 
        ln -s ~/path/to/project-repo ~/my-exocortex/project-name
 
-   Every project follows a standard structure (`readme.md`, `roadmap.md`, `src/sprint.md`, etc.) so the agent always knows where to look. To create a new project from scratch, see `org/src/contributing.md` § *Creating a new project*.
+   Every project follows a standard structure (`readme.md`, `roadmap.md`, `src/sprint.md`, etc.) so the agent always knows where to look. To create a new project from scratch, see `org/src/CONTRIBUTING.md` § *Creating a new project*.
 
 5. **Keep shared context fresh**  
    When the org repo is updated, pull the latest changes in the clone you symlinked (your exocortex always sees it as `org/`).

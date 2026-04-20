@@ -33,7 +33,7 @@ exo_path="$parent_path/exocortex"
 echo ""
 echo "  → Will create: $exo_path"
 
-if [ -f "$exo_path/user.md" ] || [ -f "$exo_path/identity.md" ]; then
+if [ -f "$exo_path/user.md" ]; then
   echo ""
   echo "  ⚠ An exocortex already exists at $exo_path."
   read -re -p "  Re-run setup and replace its files? (y/N) " confirm
@@ -169,7 +169,7 @@ echo ""
 echo "--- Copying templates ---"
 echo ""
 
-for file in AGENTS.md methods.md glossary.md contributing.md changelog.md promptlog.md; do
+for file in AGENTS.md glossary.md CONTRIBUTING.md CHANGELOG.md promptlog.md; do
   if [ -f "$TEMPLATE_DIR/$file" ]; then
     cp "$TEMPLATE_DIR/$file" "$exo_path/$file"
     echo "  ✓ $file"
@@ -206,12 +206,10 @@ echo ""
 echo "Files to flesh out:"
 echo "  - user.md        Add your bio, worldview, and more values"
 echo "  - user_role.md   Add responsibilities and routines"
-echo "  - methods.md     Add your mental models and frameworks"
 echo "  - glossary.md    Add domain-specific terms"
 echo ""
 echo "Shared context (read-only, via org/ symlink):"
 echo "  - org/src/organization.md   Mission, strategy, values"
 echo "  - org/src/team/             Your colleagues' role files"
-echo "  - org/src/methods.md        Shared heuristics"
-echo "  - org/src/contributing.md   Shared logging conventions"
+echo "  - org/src/CONTRIBUTING.md   Shared logging conventions"
 echo ""

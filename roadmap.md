@@ -3,7 +3,7 @@
 ## Done
 
 - Three-layer architecture designed and documented (local/org/project)
-- Org repo created (`aukilabs/org`) with organization.md, methods.md, contributing.md, glossary.md, team/
+- Org repo created (`aukilabs/org`) with organization.md, CONTRIBUTING.md, glossary.md, team/
 - Template restructured — clone, symlink org, populate user.md / user_role.md, go
 - setup.sh creates org symlink
 - CEO cortex running on the architecture (dog-fooding)

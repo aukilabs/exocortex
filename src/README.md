@@ -13,8 +13,8 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 | `user_role.md`    | Template for the owner's responsibilities and routines. The CEO may provide a draft; the owner rewrites it in their own words.                             |
 | `goals.md`        | Template for daily habits, weekly routines, responsibilities, and projects.                                                                                |
 | `glossary.md`     | Template for domain-specific vocabulary.                                                                                                                   |
-| `contributing.md` | Logging rules: every change must be logged in the promptlog (first) and changelog. May extend org-level conventions.                                       |
-| `changelog.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
+| `CONTRIBUTING.md` | Logging rules: every change must be logged in the promptlog (first) and CHANGELOG. May extend org-level conventions.                                       |
+| `CHANGELOG.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
 | `promptlog.md`    | Seed promptlog with one example entry. Append-only, latest on top. Includes relevance scoring against attention.                                           |
 | `setup.sh`        | Interactive setup script. Symlinks org context (`../org` or `../org-auki`), asks name, role, values, goals, and first attention focus. Populates template files with answers. |
 | `examplenils/`    | Filled-in example of user.md, user_role.md showing what a populated exocortex looks like.                                                                   |
@@ -36,7 +36,7 @@ Active project work doesn't live in this template — it lives in separate proje
 
 **The canonical list of Auki project repos lives in `org/src/projects.md`** — clone URLs and one-line descriptions for each. After running `setup.sh`, that's the file to read to find projects you should pull in.
 
-**Standard project structure** (every project follows this so agents always know where to look) is documented in the `project-scaffold` skill at `org/src/skills/project-scaffold/`. The short version: `vision.md`, `README.md`, `roadmap.md`, `glossary.md`, `changelog.md`, `parking_lot.md`, `src/`, `src/readme.md`, `src/sprint.md`.
+**Standard project structure** (every project follows this so agents always know where to look) is documented in `org/src/CONTRIBUTING.md` § *Creating a new project*. The short version: `readme.md`, `roadmap.md`, `glossary.md`, `CHANGELOG.md`, `parking_lot.md`, `src/`, `src/readme.md`, `src/sprint.md`.
 
 To symlink an existing project into your exocortex:
 
