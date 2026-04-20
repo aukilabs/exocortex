@@ -15,6 +15,7 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 | `glossary.md`     | Template for domain-specific vocabulary.                                                                                                                   |
 | `CONTRIBUTING.md` | Logging rules: every change must be logged in the promptlog (first) and CHANGELOG. May extend org-level conventions.                                       |
 | `CHANGELOG.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
+| `parking_lot.md`  | Backlog and to-do list. The agent appends items that are tabled during work, or items not actively in attention.md. |
 | `promptlog.md`    | Seed promptlog with one example entry. Append-only, latest on top. Includes relevance scoring against attention.                                           |
 | `setup.sh`        | Interactive setup script. Symlinks org context (`../org` or `../org-auki`), asks name, role, values, goals, and first attention focus. Populates template files with answers. |
 | `examplenils/`    | Filled-in example of user.md, user_role.md showing what a populated exocortex looks like.                                                                   |
