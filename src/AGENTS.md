@@ -46,6 +46,12 @@ Each quest follows a small shape: `README.md` (landing page with pitch, repos in
 
 Use a quest when a single project doesn't fit cleanly in one repo; otherwise prefer the standard project structure above. See `@org/src/quests/README.md` for the convention and current quests.
 
+### Parking lot
+
+Read `@parking_lot.md` to see the user's backlog and pending to-do items.
+If an issue or task comes up during your work but the user decides to table it for later, **append it to `parking_lot.md`**.
+If the user lists a to-do item that isn't actively their focus in `attention.md` and isn't finished yet, append it here so it doesn't get forgotten.
+
 ### Task generation
 
 When asked for tasks, generate a weekly task list by combining four inputs:
