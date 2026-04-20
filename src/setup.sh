@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Exocortex Setup
-# Waslks you t hrough creating a personal exocortex from the org template.
+# Walks you through creating a personal exocortex from the org template.
 
 set -e
 
