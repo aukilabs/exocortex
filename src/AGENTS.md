@@ -19,6 +19,10 @@ Read @org/src/team/ to know your collaborator's peers.
 
 Read @org/src/CONTRIBUTING.md for shared conventions (logging, project creation), then @CONTRIBUTING.md for personal rules. Every change must be logged in the promptlog and CHANGELOG — no exceptions.
 
+### Skills
+
+Procedural skills live at `org/src/skills/{slug}/SKILL.md` and are auto-loaded by your AI when their description matches the task. See [SKILLS.md](SKILLS.md) for the current library. Personal skills or slug-matched overrides go in `~/.claude/skills/` (for Claude).
+
 ### Projects
 
 Project repos are symlinked into the exocortex root. Each project follows a standard structure:
