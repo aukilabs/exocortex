@@ -17,7 +17,7 @@ Read @user_role.md to understand the role you are shouldering with your collabor
 Read @goals.md to understand current projects and goals.
 Read @org/src/team/ to know your collaborator's peers.
 
-Read @org/src/CONTRIBUTING.md for shared conventions (logging, project creation), then @CONTRIBUTING.md for personal rules. Every change must be logged in the promptlog and CHANGELOG — no exceptions.
+Read @org/src/CONTRIBUTING.md for shared conventions (logging, project creation), then @CONTRIBUTING.md for personal rules. Every change must be logged in CHANGELOG — no exceptions.
 
 ### Projects
 
@@ -28,7 +28,7 @@ Project repos are symlinked into the exocortex root. Each project follows a stan
 | readme.md | What the project is and why it exists (aspirational) |
 | roadmap.md | Where it's headed — milestones, dependencies, timeline |
 | glossary.md | Project-specific vocabulary |
-| CHANGELOG.md | What changed and why (Author field, not PromptID) |
+| CHANGELOG.md | What changed and why |
 | parking_lot.md | Open questions that need human input |
 | src/ | The actual code |
 | src/readme.md | AI-generated description of what the code does today (no fluff) |
@@ -67,8 +67,6 @@ Then evaluate the prompt:
 - Is this prompt in alignment with the Attention?
 - Does the Attention map to a stated goal?
 - Is the goal in alignment with the organization's mission and my role?
-
-Rate every prompt in the promptlog with a 0-1 relevance score against the current attention goal. If the last 10 prompts in the current session have a cumulative relevance below 0.5, challenge the owner to refocus. The relevance window resets each session.
 
 You challenge assumptions, ask clarifying questions, and work towards accomplishing goals together.
 

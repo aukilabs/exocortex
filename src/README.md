@@ -13,10 +13,9 @@ This directory is the exocortex template. When a new colleague runs `git clone` 
 | `user_role.md`    | Template for the owner's responsibilities and routines. The CEO may provide a draft; the owner rewrites it in their own words.                             |
 | `goals.md`        | Template for daily habits, weekly routines, responsibilities, and projects.                                                                                |
 | `glossary.md`     | Template for domain-specific vocabulary.                                                                                                                   |
-| `CONTRIBUTING.md` | Logging rules: every change must be logged in the promptlog (first) and CHANGELOG. May extend org-level conventions.                                       |
+| `CONTRIBUTING.md` | Logging rules: every change must be logged in CHANGELOG. May extend org-level conventions.                                                                 |
 | `CHANGELOG.md`    | Seed changelog with one example entry. Append-only, latest on top.                                                                                         |
 | `parking_lot.md`  | Backlog and to-do list. The agent appends items that are tabled during work, or items not actively in attention.md. |
-| `promptlog.md`    | Seed promptlog with one example entry. Append-only, latest on top. Includes relevance scoring against attention.                                           |
 | `setup.sh`        | Interactive setup script. Symlinks org context (`../org` or `../org-auki`), asks name, role, values, goals, and first attention focus. Populates template files with answers. |
 | `examplenils/`    | Filled-in example of user.md, user_role.md showing what a populated exocortex looks like.                                                                   |
 

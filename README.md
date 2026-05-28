@@ -36,7 +36,7 @@ When working, you open your personal exocortex and symlink in the organization r
 Each level carries the same three structural files:
 
 - `AGENTS.md` — the entry point for the AI agent at that level. Session behavior, read order, alignment rules.
-- `CONTRIBUTING.md` — logging conventions (changelog; promptlog at user level). May extend what the enclosing level says.
+- `CONTRIBUTING.md` — logging conventions (changelog). May extend what the enclosing level says.
 - `CHANGELOG.md` — append-only record of what changed and why, latest on top.
 
 And one identity file per level, answering "what is this?":
