@@ -6,7 +6,7 @@ The exocortex fixes this. It's a structured external memory — a set of files t
 
 ## Why this project exists
 
-This repo is the **canonical template** for an Auki exocortex. When a new Auki employee runs `src/setup.sh`, the files under `src/` become their starter personal exocortex — pre-wired to symlink in the shared `aukilabs/org` context. The template encodes the four-level exocortex spec (user, organization, project, quest) so every Auki exocortex has the same shape.
+This repo is the **canonical template** for an Auki exocortex. When a new Auki employee runs `src/setup.sh`, the files under `src/` become their starter personal exocortex — pre-wired to symlink in the shared `aukilabs/org` context. The template encodes the three-level exocortex spec (user, organization, project) so every Auki exocortex has the same shape.
 
 Auki's mission is to increase civilization's intercognitive capacity — the ability to think, experience, and solve problems together with each other and with AI. Exocortices are one of the tactical mechanisms for that: they give every employee an AI collaborator who already has the full context the employee lives inside.
 

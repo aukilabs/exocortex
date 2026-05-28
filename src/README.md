@@ -44,16 +44,6 @@ To symlink an existing project into your exocortex:
 
 The agent's `AGENTS.md` already knows to look for projects in the exocortex root — this section is here so you, the human, know it too.
 
-## Quests
-
-A **quest** is a cross-repo project — work that spans multiple repos where no single repo can own the state. Quests live inside the org repo at `org/src/quests/{slug}/`, so cloning `org` already gives you every quest. You can still symlink an active quest into your exocortex root for top-level access, the same way you would a project:
-
-    ln -s ~/path/to/aukilabs-org/src/quests/{slug} ~/my-exocortex/{slug}
-
-**Quests are listed alongside project repos in `org/src/projects.md`** — one canonical index for all the work at Auki. The per-quest detail (roadmap, sprints, changelog, parking lot) lives in that quest's own directory.
-
-**Quest structure** is documented in the `quest-scaffold` skill at `org/src/skills/quest-scaffold/`. Use a quest when a single project can't cleanly own the work; otherwise prefer the standard project structure.
-
 ## How setup.sh works
 
 1. Asks where you want your personal exocortex to live
