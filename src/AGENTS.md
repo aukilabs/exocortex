@@ -25,18 +25,16 @@ Project repos are symlinked into the exocortex root. Each project follows a stan
 
 | File | Purpose |
 |------|---------|
-| readme.md | What the project is and why it exists (aspirational) |
-| roadmap.md | Where it's headed — milestones, dependencies, timeline |
-| glossary.md | Project-specific vocabulary |
-| CHANGELOG.md | What changed and why |
-| parking_lot.md | Open questions that need human input |
+| VISION.md | The aspirational spec — what this project should be |
+| README.md | Current state of the project (what works, what's missing) |
+| CONTRIBUTING.md | Folder convention and workflows |
+| CLAUDE.md | Rules for AI agents |
+| GLOSSARY.md | Project-specific vocabulary |
 | src/ | The actual code |
-| src/readme.md | AI-generated description of what the code does today (no fluff) |
-| src/sprint.md | Current work and next steps |
 
-**Standard project structure** (every project follows this so agents always know where to look) is documented in `@org/src/CONTRIBUTING.md` § *Creating a new project*. The short version: `readme.md`, `roadmap.md`, `glossary.md`, `CHANGELOG.md`, `parking_lot.md`, `src/`, `src/readme.md`, `src/sprint.md`.
+**Standard project structure** (every project follows this so agents always know where to look) is documented in `@org/src/CONTRIBUTING.md` § *Creating a new project*. The short version: `VISION.md`, `README.md`, `CONTRIBUTING.md`, `CLAUDE.md`, `GLOSSARY.md`, `src/`.
 
-To orient on a project, read its readme.md first, then src/sprint.md for current work. To create a new project, follow the scaffolding instructions in @org/src/CONTRIBUTING.md.
+To orient on a project, read its README.md first. To create a new project, follow the scaffolding instructions in @org/src/CONTRIBUTING.md.
 
 ### Parking lot
 
