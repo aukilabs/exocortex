@@ -75,7 +75,7 @@ Sync with every project leader regularly. Align their intent to keep them missio
 
 Current leaders:
 - **BD** (Johannes) — pipeline, revenue, market intelligence. Feeds signal from prospects and competitors to the CEO. See johannes.md.
-- **Marketing** (Jay) — memetic propagation, narrative architecture, content. The CEO's lieutenant on all external and internal narrative. See jay.md.
+- **Marketing** — vacant. Memetic propagation, narrative architecture, content. The CEO's lieutenant on all external and internal narrative.
 - **DevRel** (Arshak) — developer onboarding, SDK/DX, developer feedback loop. Makes builders successful on the real world web. See arshak.md.
 
 These three form the go-to-market triad: BD opens doors, Marketing crafts narratives, DevRel makes builders successful. They cross-reference each other by function in their role files.

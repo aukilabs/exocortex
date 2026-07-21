@@ -15,7 +15,6 @@
 **Owner:** Nils
 
 - Onboard Freddie (COO) — first non-engineering exocortex, validates that the system works for ops/finance-adjacent roles
-- Resync Jay (Marketing) — his exocortex predates the three-layer restructure, needs to pull latest template and symlink org
 - Onboard Cherlin (Head of Finance) — stretch goal, same process as Freddie
 - Create role files for Freddie and Cherlin in `org/src/team/`
 - Complete Johannes onboarding (verify his exocortex is functional end-to-end)
